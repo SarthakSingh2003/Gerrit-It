@@ -46,12 +46,17 @@ export async function resolveCanonicalAccount(
     return cached;
   }
 
+  const requestHeaders = {
+    'Accept': 'application/json',
+    'User-Agent': 'WikiGerritTracker/1.0 (https://gerrit.wikimedia.org; community-tool)'
+  };
+
   // Case 1: Numeric Gerrit Account ID
   if (/^\d+$/.test(trimmed)) {
     const accountId = parseInt(trimmed, 10);
     const detailUrl = `${env.GERRIT_BASE_URL}/accounts/${accountId}/detail`;
     try {
-      const resp = await fetchFn(detailUrl);
+      const resp = await fetchFn(detailUrl, { headers: requestHeaders });
       if (resp.status === 404) {
         throw new AccountResolutionError(`Gerrit account #${accountId} not found`, 'ACCOUNT_NOT_FOUND');
       }
@@ -75,7 +80,7 @@ export async function resolveCanonicalAccount(
 
   let candidates: GerritAccount[] = [];
   try {
-    const resp = await fetchFn(searchUrl);
+    const resp = await fetchFn(searchUrl, { headers: requestHeaders });
     if (!resp.ok) {
       throw new AccountResolutionError(`Gerrit accounts search returned HTTP ${resp.status}`, 'UPSTREAM_ERROR');
     }
@@ -122,7 +127,7 @@ export async function resolveCanonicalAccount(
   // Fetch full details for the canonical target
   const detailUrl = `${env.GERRIT_BASE_URL}/accounts/${targetAccountId}/detail`;
   try {
-    const detailResp = await fetchFn(detailUrl);
+    const detailResp = await fetchFn(detailUrl, { headers: requestHeaders });
     if (!detailResp.ok) {
       throw new AccountResolutionError(`Failed to fetch details for account #${targetAccountId}`, 'UPSTREAM_ERROR');
     }

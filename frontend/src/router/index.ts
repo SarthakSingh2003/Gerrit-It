@@ -3,7 +3,6 @@ import DashboardView from '../views/DashboardView.vue';
 import ContributorView from '../views/ContributorView.vue';
 import ReviewsView from '../views/ReviewsView.vue';
 import ReportsView from '../views/ReportsView.vue';
-import AboutView from '../views/AboutView.vue';
 
 const routes = [
   {
@@ -29,12 +28,6 @@ const routes = [
     name: 'reports',
     component: ReportsView,
     meta: { title: 'Report — WikiGerritTracker' }
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: AboutView,
-    meta: { title: 'About & Architecture — WikiGerritTracker' }
   },
   {
     path: '/:pathMatch(.*)*',

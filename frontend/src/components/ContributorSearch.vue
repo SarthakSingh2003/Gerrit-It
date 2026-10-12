@@ -12,12 +12,13 @@
           :disabled="isLoading"
           autocomplete="off"
           spellcheck="false"
+          @input="onInput"
         />
         <button
           v-if="query"
           type="button"
           class="wgt-clear-btn"
-          @click="query = ''"
+          @click="handleClear"
           aria-label="Clear search input"
         >
           ×
@@ -124,22 +125,61 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref, watch } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 import { useContributor } from '../composables/useContributor.js';
 import { useSearchHistory } from '../composables/useSearchHistory.js';
 import { DisambiguationCandidate } from '../types/index.js';
 
 const router = useRouter();
+const route = useRoute();
 const query = ref('');
-const { isLoading, error, disambiguationCandidates, loadContributor } = useContributor();
+const {
+  isLoading,
+  error,
+  disambiguationCandidates,
+  currentIdentifier,
+  summary,
+  loadContributor,
+  reset
+} = useContributor();
 const { consentGiven, searchHistory, setConsent, addSearch, clearHistory } = useSearchHistory();
 
 const sampleProfiles = ['legoktm', 'reedy', 'krinkle', 'roan', 'matmarex'];
 
+// Sync search query with current route / active contributor
+watch(
+  [() => currentIdentifier.value, () => route?.params?.identifier],
+  ([newId, routeId]) => {
+    const active = newId || (typeof routeId === 'string' ? routeId : '');
+    if (active && query.value !== active) {
+      query.value = active;
+    }
+  },
+  { immediate: true }
+);
+
+const handleClear = () => {
+  query.value = '';
+  reset();
+  if (route?.path && route.path.startsWith('/user')) {
+    router.push('/');
+  }
+};
+
+const onInput = (event: Event) => {
+  const target = event.target as HTMLInputElement;
+  if (!target.value.trim() && (currentIdentifier.value || summary.value)) {
+    handleClear();
+  }
+};
+
 const handleSearch = async () => {
   const trimmed = query.value.trim();
-  if (!trimmed) return;
+  if (!trimmed) {
+    handleClear();
+    return;
+  }
 
   addSearch(trimmed);
   router.push(`/user/${encodeURIComponent(trimmed)}`);

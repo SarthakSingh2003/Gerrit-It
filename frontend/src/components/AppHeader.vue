@@ -38,9 +38,6 @@
         >
           Report
         </router-link>
-        <router-link to="/about" class="wgt-nav-item" active-class="wgt-nav-active">
-          About
-        </router-link>
       </nav>
 
       <div class="wgt-header-actions">

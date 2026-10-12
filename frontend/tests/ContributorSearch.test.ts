@@ -7,6 +7,10 @@ const mockPush = vi.fn();
 vi.mock('vue-router', () => ({
   useRouter: () => ({
     push: mockPush
+  }),
+  useRoute: () => ({
+    path: '/',
+    params: {}
   })
 }));
 
@@ -36,5 +40,17 @@ describe('ContributorSearch Component', () => {
     const chips = wrapper.findAll('.wgt-sample-chip');
     expect(chips.length).toBeGreaterThanOrEqual(3);
     expect(chips[0].text()).toBe('legoktm');
+  });
+
+  it('clears query and resets data when clear button is clicked', async () => {
+    const wrapper = mount(ContributorSearch);
+    const input = wrapper.find('input[type="text"]');
+    await input.setValue('akaza24');
+
+    const clearBtn = wrapper.find('.wgt-clear-btn');
+    expect(clearBtn.exists()).toBe(true);
+
+    await clearBtn.trigger('click');
+    expect((input.element as HTMLInputElement).value).toBe('');
   });
 });
