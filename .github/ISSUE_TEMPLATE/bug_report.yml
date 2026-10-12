@@ -1,0 +1,57 @@
+name: Bug Report
+description: Report a reproducible problem or unexpected error in WikiGeeriTracker
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting an issue! Please verify that the problem is reproducible and check whether a similar issue has already been reported.
+
+  - type: input
+    id: contributor
+    attributes:
+      label: Tested Gerrit Contributor or Account ID
+      description: The Gerrit username, numeric ID, or search query tested (if applicable).
+      placeholder: e.g., legoktm, 458
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what happened.
+      placeholder: When searching for contributor X with date filter Y, the metric Z displayed...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Exact steps to reproduce the issue.
+      placeholder: |
+        1. Open dashboard at ...
+        2. Enter username '...'
+        3. Click 'Analyze Contributions'
+        4. Observe error ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Browser & Environment
+      description: Browser, version, and operating system.
+      placeholder: e.g. Firefox 128 on Linux / Chrome 130 on Windows
+    validations:
+      required: false

@@ -1,0 +1,177 @@
+@import '@wikimedia/codex/dist/codex.style.css';
+@import './print.css';
+
+:root {
+  --wgt-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif;
+  --wgt-font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+
+  /* Wikimedia Core Brand Colors */
+  --wgt-color-primary: #3366cc;
+  --wgt-color-primary-hover: #23478c;
+  --wgt-color-primary-active: #172d58;
+  --wgt-color-success: #00af89;
+  --wgt-color-warning: #ffaa00;
+  --wgt-color-error: #d33;
+  --wgt-color-destructive: #b32424;
+
+  /* Base Light Theme */
+  --wgt-bg-base: #f8f9fa;
+  --wgt-bg-surface: #ffffff;
+  --wgt-bg-subtle: #eaecf0;
+  --wgt-bg-accent: #eaf3ff;
+  --wgt-text-primary: #202122;
+  --wgt-text-secondary: #54595d;
+  --wgt-text-subtle: #72777d;
+  --wgt-border-base: #a2a9b1;
+  --wgt-border-subtle: #c8ccd1;
+  --wgt-border-light: #eaecf0;
+  --wgt-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --wgt-shadow-elevated: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+  /* Spacing */
+  --wgt-radius: 4px;
+  --wgt-radius-lg: 8px;
+}
+
+[data-theme="dark"] {
+  --wgt-bg-base: #101418;
+  --wgt-bg-surface: #1e2329;
+  --wgt-bg-subtle: #29303a;
+  --wgt-bg-accent: #19273c;
+  --wgt-text-primary: #eaecf0;
+  --wgt-text-secondary: #c8ccd1;
+  --wgt-text-subtle: #a2a9b1;
+  --wgt-border-base: #54595d;
+  --wgt-border-subtle: #3a424e;
+  --wgt-border-light: #29303a;
+  --wgt-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --wgt-shadow-elevated: 0 4px 16px rgba(0, 0, 0, 0.5);
+
+  --wgt-color-primary: #699bf7;
+  --wgt-color-primary-hover: #8bb2f9;
+  --wgt-color-primary-active: #aec9fa;
+  --wgt-color-success: #20c997;
+  --wgt-color-warning: #ffc107;
+  --wgt-color-error: #ff6b6b;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100vh;
+  font-family: var(--wgt-font-family);
+  background-color: var(--wgt-bg-base);
+  color: var(--wgt-text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--wgt-color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Focus Visibility */
+:focus-visible {
+  outline: 2px solid var(--wgt-color-primary);
+  outline-offset: 2px;
+}
+
+/* Layout Utilities */
+.wgt-container {
+  width: 100%;
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (min-width: 1440px) {
+  .wgt-container {
+    padding: 0 3rem;
+  }
+}
+
+.wgt-card {
+  background-color: var(--wgt-bg-surface);
+  border: 1px solid var(--wgt-border-subtle);
+  border-radius: var(--wgt-radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--wgt-shadow-card);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wgt-card:hover {
+  border-color: var(--wgt-border-base);
+  box-shadow: var(--wgt-shadow-elevated);
+}
+
+.wgt-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.wgt-badge-merged {
+  background-color: #d5fdf0;
+  color: #046b4c;
+}
+
+.wgt-badge-open {
+  background-color: #eaf3ff;
+  color: #174ea6;
+}
+
+.wgt-badge-abandoned {
+  background-color: #fee7e7;
+  color: #b32424;
+}
+
+[data-theme="dark"] .wgt-badge-merged {
+  background-color: #0b3d2c;
+  color: #79f2c3;
+}
+
+[data-theme="dark"] .wgt-badge-open {
+  background-color: #1a2f4c;
+  color: #93bcf8;
+}
+
+[data-theme="dark"] .wgt-badge-abandoned {
+  background-color: #441717;
+  color: #fca5a5;
+}
+
+/* RTL Layout Helpers */
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .wgt-badge {
+  direction: rtl;
+}

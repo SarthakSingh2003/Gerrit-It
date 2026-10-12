@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Wikimedia Gerrit Help & Documentation
+    url: https://www.mediawiki.org/wiki/Gerrit/Tutorial
+    about: Official guide on Wikimedia Gerrit code review and git workflows.
+  - name: Wikimedia Codex Component Library
+    url: https://doc.wikimedia.org/codex/
+    about: Official design system documentation and tokens for MediaWiki/Vue.
+  - name: WikiGeeriTracker Security Advisory
+    url: https://github.com/wikimedia/wikigeeritracker/security/policy
+    about: Please report potential security vulnerabilities privately according to SECURITY.md.
