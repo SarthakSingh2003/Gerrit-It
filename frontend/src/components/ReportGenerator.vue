@@ -15,7 +15,7 @@
           @click="copyMarkdown"
           :disabled="isGenerating || !markdownContent"
         >
-          <span>{{ copied ? '✓ Copied!' : '📋 Copy Markdown' }}</span>
+          <span>{{ copied ? 'Copied to Clipboard' : 'Copy Markdown' }}</span>
         </button>
 
         <button
@@ -24,7 +24,7 @@
           @click="downloadMarkdown"
           :disabled="isGenerating || !markdownContent"
         >
-          <span>💾 Download .md</span>
+          <span>Download Markdown</span>
         </button>
 
         <button
@@ -33,7 +33,7 @@
           @click="triggerPrintPdf"
           :disabled="isGenerating || !markdownContent"
         >
-          <span>🖨️ Print / Save PDF</span>
+          <span>Print / Export PDF</span>
         </button>
       </div>
     </div>
@@ -341,6 +341,16 @@ onMounted(() => {
 
 .btn-primary:hover:not(:disabled) {
   background-color: var(--wgt-color-primary-hover) !important;
+}
+
+[data-theme="dark"] .btn-primary {
+  background-color: #3b5270 !important;
+  border-color: #5c7ca8 !important;
+  color: #e8edf5 !important;
+}
+
+[data-theme="dark"] .btn-primary:hover:not(:disabled) {
+  background-color: #496386 !important;
 }
 
 .wgt-report-config {

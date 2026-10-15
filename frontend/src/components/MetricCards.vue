@@ -13,7 +13,7 @@
       <div class="wgt-meta-right">
         <span class="wgt-meta-time">Updated: {{ formattedDate }}</span>
         <span v-if="summary.metadata.paginationBudgetHit" class="wgt-partial-warning" title="Results capped at safety limit">
-          ⚠️ Budget Capped
+          Budget Capped
         </span>
       </div>
     </div>
@@ -24,7 +24,7 @@
       <div class="wgt-metric-card" tabindex="0">
         <div class="wgt-card-header">
           <span class="wgt-card-title">Total Authored</span>
-          <span class="wgt-tooltip-trigger" title="Total public patch changes owned by this account within the selected period">ℹ️</span>
+          <span class="wgt-tooltip-trigger" title="Total public patch changes owned by this account within the selected period">i</span>
         </div>
         <div class="wgt-card-value">{{ summary.authored.totalAuthored.toLocaleString() }}</div>
         <div class="wgt-card-footer">
@@ -36,7 +36,7 @@
       <div class="wgt-metric-card metric-merged" tabindex="0">
         <div class="wgt-card-header">
           <span class="wgt-card-title">Merged Patches</span>
-          <span class="wgt-tooltip-trigger" title="Changes reviewed, verified, and successfully submitted into upstream git branches">ℹ️</span>
+          <span class="wgt-tooltip-trigger" title="Changes reviewed, verified, and successfully submitted into upstream git branches">i</span>
         </div>
         <div class="wgt-card-value text-merged">{{ summary.authored.merged.toLocaleString() }}</div>
         <div class="wgt-card-footer">
@@ -48,7 +48,7 @@
       <div class="wgt-metric-card metric-open" tabindex="0">
         <div class="wgt-card-header">
           <span class="wgt-card-title">Open / In Review</span>
-          <span class="wgt-tooltip-trigger" title="Active patches pending further code review, CI verification, or author updates">ℹ️</span>
+          <span class="wgt-tooltip-trigger" title="Active patches pending further code review, CI verification, or author updates">i</span>
         </div>
         <div class="wgt-card-value text-open">{{ summary.authored.open.toLocaleString() }}</div>
         <div class="wgt-card-footer">
@@ -60,7 +60,7 @@
       <div class="wgt-metric-card metric-abandoned" tabindex="0">
         <div class="wgt-card-header">
           <span class="wgt-card-title">Abandoned Patches</span>
-          <span class="wgt-tooltip-trigger" title="Patches closed without merging (e.g. superseded by alternative approach or duplicate)">ℹ️</span>
+          <span class="wgt-tooltip-trigger" title="Patches closed without merging (e.g. superseded by alternative approach or duplicate)">i</span>
         </div>
         <div class="wgt-card-value text-abandoned">{{ summary.authored.abandoned.toLocaleString() }}</div>
         <div class="wgt-card-footer">
@@ -72,7 +72,7 @@
       <div class="wgt-metric-card metric-reviewed" tabindex="0">
         <div class="wgt-card-header">
           <span class="wgt-card-title">Distinct Changes Reviewed</span>
-          <span class="wgt-tooltip-trigger" title="Peer changes where this contributor participated as a reviewer (excluding self-reviews)">ℹ️</span>
+          <span class="wgt-tooltip-trigger" title="Peer changes where this contributor participated as a reviewer (excluding self-reviews)">i</span>
         </div>
         <div class="wgt-card-value text-reviewed">{{ summary.reviews.distinctChangesReviewed.toLocaleString() }}</div>
         <div class="wgt-card-footer">
@@ -84,7 +84,7 @@
       <div class="wgt-metric-card metric-approvals" tabindex="0">
         <div class="wgt-card-header">
           <span class="wgt-card-title">Verified Approvals (+2)</span>
-          <span class="wgt-tooltip-trigger" title="Changes where contributor cast a Code-Review +2 vote approving the change for merge">ℹ️</span>
+          <span class="wgt-tooltip-trigger" title="Changes where contributor cast a Code-Review +2 vote approving the change for merge">i</span>
         </div>
         <div class="wgt-card-value text-approvals">{{ summary.reviews.approvalsCount.toLocaleString() }}</div>
         <div class="wgt-card-footer">
@@ -96,7 +96,7 @@
       <div class="wgt-metric-card" tabindex="0">
         <div class="wgt-card-header">
           <span class="wgt-card-title">Repositories Impacted</span>
-          <span class="wgt-tooltip-trigger" title="Distinct Gerrit repositories touched by authored code commits">ℹ️</span>
+          <span class="wgt-tooltip-trigger" title="Distinct Gerrit repositories touched by authored code commits">i</span>
         </div>
         <div class="wgt-card-value">{{ summary.authored.uniqueRepositories.toLocaleString() }}</div>
         <div class="wgt-card-footer">
@@ -108,7 +108,7 @@
       <div class="wgt-metric-card" tabindex="0">
         <div class="wgt-card-header">
           <span class="wgt-card-title">First Recorded Activity</span>
-          <span class="wgt-tooltip-trigger" title="Earliest recorded authored contribution within retrieved records">ℹ️</span>
+          <span class="wgt-tooltip-trigger" title="Earliest recorded authored contribution within retrieved records">i</span>
         </div>
         <div class="wgt-card-value font-compact">
           {{ formattedFirstDate }}
@@ -190,15 +190,15 @@ const formattedFirstDate = computed(() => {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background-color: #00af89;
+  background-color: var(--wgt-color-success);
 }
 
 .indicator-cached {
-  background-color: #3366cc;
+  background-color: var(--wgt-color-primary);
 }
 
 .wgt-partial-warning {
-  color: #b32424;
+  color: var(--wgt-color-error);
   font-weight: 600;
 }
 
@@ -259,17 +259,17 @@ const formattedFirstDate = computed(() => {
   font-size: 1.35rem;
 }
 
-.text-merged { color: #046b4c; }
-.text-open { color: #174ea6; }
-.text-abandoned { color: #b32424; }
-.text-reviewed { color: #5c2b97; }
-.text-approvals { color: #00875a; }
+.text-merged { color: #326e5a; }
+.text-open { color: #3b5f8c; }
+.text-abandoned { color: #9a4848; }
+.text-reviewed { color: #685282; }
+.text-approvals { color: #336a56; }
 
-[data-theme="dark"] .text-merged { color: #79f2c3; }
-[data-theme="dark"] .text-open { color: #93bcf8; }
-[data-theme="dark"] .text-abandoned { color: #fca5a5; }
-[data-theme="dark"] .text-reviewed { color: #d8b4fe; }
-[data-theme="dark"] .text-approvals { color: #57d9a3; }
+[data-theme="dark"] .text-merged { color: #78bca0; }
+[data-theme="dark"] .text-open { color: #8aaad6; }
+[data-theme="dark"] .text-abandoned { color: #db8e8e; }
+[data-theme="dark"] .text-reviewed { color: #c5b2e3; }
+[data-theme="dark"] .text-approvals { color: #80cbb0; }
 
 .wgt-card-footer {
   font-size: 0.75rem;
@@ -277,11 +277,11 @@ const formattedFirstDate = computed(() => {
 }
 
 .wgt-rate-badge {
-  color: #046b4c;
+  color: #326e5a;
   font-weight: 600;
 }
 
 [data-theme="dark"] .wgt-rate-badge {
-  color: #79f2c3;
+  color: #78bca0;
 }
 </style>

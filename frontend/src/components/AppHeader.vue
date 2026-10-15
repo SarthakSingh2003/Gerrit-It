@@ -49,7 +49,10 @@
           title="Open Wikimedia Gerrit in new tab"
         >
           <span>Gerrit</span>
-          <span class="wgt-ext-icon" aria-hidden="true">↗</span>
+          <svg class="wgt-ext-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
         </a>
 
         <button
@@ -59,7 +62,21 @@
           :title="isDarkMode ? 'Switch to Light Theme' : 'Switch to Dark Theme'"
           :aria-label="isDarkMode ? 'Switch to Light Theme' : 'Switch to Dark Theme'"
         >
-          <span>{{ isDarkMode ? '☀️ Light' : '🌙 Dark' }}</span>
+          <svg v-if="isDarkMode" class="wgt-theme-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg v-else class="wgt-theme-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span>{{ isDarkMode ? 'Light' : 'Dark' }}</span>
         </button>
       </div>
     </div>
@@ -113,15 +130,20 @@ const userReportsLink = computed(() => `/user/${encodeURIComponent(targetUser.va
 .wgt-logo-mark {
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, #3366cc, #00af89);
+  background-color: var(--wgt-color-primary);
   color: #ffffff;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 800;
-  font-size: 1.25rem;
-  box-shadow: 0 2px 4px rgba(51, 102, 204, 0.3);
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+[data-theme="dark"] .wgt-logo-mark {
+  background-color: #354760;
+  color: #dbe7f7;
+  border: 1px solid #4a6182;
 }
 
 .wgt-brand-text {
@@ -156,6 +178,7 @@ const userReportsLink = computed(() => `/user/${encodeURIComponent(targetUser.va
   color: var(--wgt-text-secondary);
   text-decoration: none;
   transition: background-color 0.15s ease, color 0.15s ease;
+  border: 1px solid transparent;
 }
 
 .wgt-nav-item:hover {
@@ -167,6 +190,7 @@ const userReportsLink = computed(() => `/user/${encodeURIComponent(targetUser.va
 .wgt-nav-active {
   background-color: var(--wgt-bg-accent);
   color: var(--wgt-color-primary);
+  border-color: var(--wgt-border-subtle);
   font-weight: 600;
 }
 
@@ -199,9 +223,11 @@ const userReportsLink = computed(() => `/user/${encodeURIComponent(targetUser.va
   text-decoration: none;
 }
 
-.wgt-ext-icon {
-  font-size: 0.9rem;
-  line-height: 1;
+.wgt-ext-svg,
+.wgt-theme-svg {
+  width: 14px;
+  height: 14px;
+  display: block;
 }
 
 @media (max-width: 900px) {

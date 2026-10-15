@@ -63,7 +63,7 @@
           rel="noopener noreferrer"
           class="wgt-gerrit-btn"
         >
-          Open in Wikimedia Gerrit ↗
+          Open in Wikimedia Gerrit
         </a>
         <button type="button" class="wgt-close-btn" @click="$emit('close')">
           Close
@@ -192,6 +192,22 @@ defineEmits<{
   font-weight: 600;
   font-size: 0.85rem;
   text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.wgt-gerrit-btn:hover {
+  background-color: var(--wgt-color-primary-hover);
+  text-decoration: none;
+}
+
+[data-theme="dark"] .wgt-gerrit-btn {
+  background-color: #3b5270;
+  border: 1px solid #5c7ca8;
+  color: #e8edf5;
+}
+
+[data-theme="dark"] .wgt-gerrit-btn:hover {
+  background-color: #496386;
 }
 
 .wgt-close-btn {
@@ -202,5 +218,11 @@ defineEmits<{
   border-radius: var(--wgt-radius);
   cursor: pointer;
   font-size: 0.85rem;
+  transition: all 0.15s ease;
+}
+
+.wgt-close-btn:hover {
+  border-color: var(--wgt-color-primary);
+  color: var(--wgt-color-primary);
 }
 </style>

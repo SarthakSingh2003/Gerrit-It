@@ -1,7 +1,7 @@
 <template>
   <div class="wgt-date-picker" role="region" aria-label="Days-Wise Analysis and Time Range Filtering">
     <div class="wgt-preset-header">
-      <span class="wgt-preset-title">📅 Days-Wise Analysis:</span>
+      <span class="wgt-preset-title">Days-Wise Analysis:</span>
     </div>
     <div class="wgt-preset-chips" role="group" aria-label="Days-wise Analysis Presets">
       <button
@@ -133,6 +133,12 @@ const emitCustomRange = () => {
   font-weight: 600;
 }
 
+[data-theme="dark"] .wgt-chip-selected {
+  background-color: #3b5270 !important;
+  color: #e8edf5 !important;
+  border-color: #5c7ca8 !important;
+}
+
 .wgt-custom-range-inputs {
   display: flex;
   align-items: flex-end;
@@ -174,9 +180,20 @@ const emitCustomRange = () => {
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.15s ease;
 }
 
 .wgt-apply-btn:hover {
   background-color: var(--wgt-color-primary-hover);
+}
+
+[data-theme="dark"] .wgt-apply-btn {
+  background-color: #3b5270;
+  border-color: #5c7ca8;
+  color: #e8edf5;
+}
+
+[data-theme="dark"] .wgt-apply-btn:hover {
+  background-color: #496386;
 }
 </style>

@@ -183,13 +183,13 @@ const reviewedRatio = computed(() => {
   transition: width 0.3s ease;
 }
 
-.fill-core { background-color: #3366cc; }
-.fill-extension { background-color: #7b1fa2; }
-.fill-skin { background-color: #d97706; }
-.fill-bot-ecosystem { background-color: #059669; }
-.fill-design-system { background-color: #db2777; }
-.fill-infrastructure { background-color: #ea580c; }
-.fill-other { background-color: #6b7280; }
+.fill-core { background-color: #688bb8; }
+.fill-extension { background-color: #8c78aa; }
+.fill-skin { background-color: #c99b5a; }
+.fill-bot-ecosystem { background-color: #5fa28a; }
+.fill-design-system { background-color: #b47392; }
+.fill-infrastructure { background-color: #b88260; }
+.fill-other { background-color: #808d9f; }
 
 .wgt-focus-metrics {
   display: flex;
@@ -219,19 +219,19 @@ const reviewedRatio = computed(() => {
 }
 
 .block-authored .wgt-focus-num {
-  color: #3366cc;
+  color: var(--wgt-color-primary, #4e709a);
 }
 
 .block-reviewed .wgt-focus-num {
-  color: #7b1fa2;
+  color: var(--wgt-cat-extension, #685282);
 }
 
 [data-theme="dark"] .block-authored .wgt-focus-num {
-  color: #699bf7;
+  color: var(--wgt-color-primary, #8aaad6);
 }
 
 [data-theme="dark"] .block-reviewed .wgt-focus-num {
-  color: #d8b4fe;
+  color: var(--wgt-cat-extension, #c5b2e3);
 }
 
 .wgt-focus-sub {
@@ -255,21 +255,21 @@ const reviewedRatio = computed(() => {
 }
 
 .wgt-ratio-authored {
-  background-color: #3366cc;
+  background-color: #688bb8;
   transition: width 0.3s ease;
 }
 
 .wgt-ratio-reviewed {
-  background-color: #7b1fa2;
+  background-color: #8c78aa;
   transition: width 0.3s ease;
 }
 
 [data-theme="dark"] .wgt-ratio-authored {
-  background-color: #699bf7;
+  background-color: #8aaad6;
 }
 
 [data-theme="dark"] .wgt-ratio-reviewed {
-  background-color: #d8b4fe;
+  background-color: #c5b2e3;
 }
 
 .wgt-ratio-legend {
@@ -292,9 +292,9 @@ const reviewedRatio = computed(() => {
   border-radius: 50%;
 }
 
-.dot-authored { background-color: #3366cc; }
-.dot-reviewed { background-color: #7b1fa2; }
+.dot-authored { background-color: #688bb8; }
+.dot-reviewed { background-color: #8c78aa; }
 
-[data-theme="dark"] .dot-authored { background-color: #699bf7; }
-[data-theme="dark"] .dot-reviewed { background-color: #d8b4fe; }
+[data-theme="dark"] .dot-authored { background-color: #8aaad6; }
+[data-theme="dark"] .dot-reviewed { background-color: #c5b2e3; }
 </style>

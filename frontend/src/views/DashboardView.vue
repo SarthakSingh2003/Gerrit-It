@@ -4,7 +4,7 @@
     <section class="wgt-hero" aria-label="Hero Section">
       <div class="wgt-hero-content">
         <h1 class="wgt-hero-title">
-          Quantify Your <span class="wgt-title-gradient">Technical Impact</span> Across Wikimedia
+          Quantify Your <span class="wgt-hero-accent">Technical Impact</span> Across Wikimedia
         </h1>
         <p class="wgt-hero-subtitle">
           Retrieve public contribution information directly from Wikimedia Gerrit and transform it into transparent, independently verifiable analytics, days-wise activity breakdowns, and community reports.
@@ -44,7 +44,7 @@
     <section class="wgt-days-banner" aria-label="Days-Wise Analysis Showcase">
       <div class="wgt-days-banner-inner">
         <div class="wgt-days-banner-text">
-          <div class="wgt-days-pill">📅 Precision Time Filtering</div>
+          <div class="wgt-days-pill">Precision Time Filtering</div>
           <h2 class="wgt-days-title">Days-Wise Activity & Performance Breakdown</h2>
           <p class="wgt-days-desc">
             Filter and isolate contribution metrics by exact timeframes: <strong>7 days</strong>, <strong>14 days</strong>, <strong>30 days</strong>, <strong>60 days</strong>, <strong>90 days</strong>, <strong>180 days</strong>, and <strong>365 days</strong>, or specify custom date ranges with zero guesswork.
@@ -75,7 +75,12 @@
       <div class="wgt-features-grid">
         <div class="wgt-feature-card">
           <div class="wgt-feature-header">
-            <div class="wgt-feature-icon">🔍</div>
+            <div class="wgt-feature-icon-box">
+              <svg class="wgt-feat-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
             <span class="wgt-feature-badge">Code Authoring</span>
           </div>
           <h3 class="wgt-feature-title">Authored Patches & Merges</h3>
@@ -85,14 +90,20 @@
           <div class="wgt-feature-footer">
             <router-link to="/user/legoktm" class="wgt-feature-link">
               <span>View Sample Contributions</span>
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true">&rarr;</span>
             </router-link>
           </div>
         </div>
 
         <div class="wgt-feature-card">
           <div class="wgt-feature-header">
-            <div class="wgt-feature-icon">⚖️</div>
+            <div class="wgt-feature-icon-box icon-purple">
+              <svg class="wgt-feat-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <path d="m9 15 2 2 4-4"></path>
+              </svg>
+            </div>
             <span class="wgt-feature-badge badge-purple">Code Review</span>
           </div>
           <h3 class="wgt-feature-title">Code Review Intelligence</h3>
@@ -102,14 +113,22 @@
           <div class="wgt-feature-footer">
             <router-link to="/user/legoktm/reviews" class="wgt-feature-link">
               <span>Explore Review Insights</span>
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true">&rarr;</span>
             </router-link>
           </div>
         </div>
 
         <div class="wgt-feature-card">
           <div class="wgt-feature-header">
-            <div class="wgt-feature-icon">📜</div>
+            <div class="wgt-feature-icon-box icon-teal">
+              <svg class="wgt-feat-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
             <span class="wgt-feature-badge badge-teal">Export Dossier</span>
           </div>
           <h3 class="wgt-feature-title">Verifiable Report Generator</h3>
@@ -119,7 +138,7 @@
           <div class="wgt-feature-footer">
             <router-link to="/user/legoktm/report" class="wgt-feature-link">
               <span>Generate Report</span>
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true">&rarr;</span>
             </router-link>
           </div>
         </div>
@@ -142,7 +161,7 @@ import ContributorSearch from '../components/ContributorSearch.vue';
 }
 
 .wgt-hero {
-  background: linear-gradient(135deg, rgba(51, 102, 204, 0.08) 0%, rgba(0, 175, 137, 0.06) 50%, var(--wgt-bg-base) 100%);
+  background-color: var(--wgt-bg-surface);
   border: 1px solid var(--wgt-border-subtle);
   border-radius: var(--wgt-radius-lg);
   padding: 4.5rem 3rem;
@@ -151,7 +170,7 @@ import ContributorSearch from '../components/ContributorSearch.vue';
 }
 
 [data-theme="dark"] .wgt-hero {
-  background: linear-gradient(135deg, #162438 0%, #102523 50%, var(--wgt-bg-surface) 100%);
+  background-color: var(--wgt-bg-surface);
   border-color: var(--wgt-border-subtle);
 }
 
@@ -164,7 +183,6 @@ import ContributorSearch from '../components/ContributorSearch.vue';
   gap: 1.5rem;
 }
 
-
 .wgt-hero-title {
   font-size: 3.1rem;
   font-weight: 850;
@@ -173,16 +191,9 @@ import ContributorSearch from '../components/ContributorSearch.vue';
   letter-spacing: -0.03em;
 }
 
-.wgt-title-gradient {
-  background: linear-gradient(135deg, #3366cc 20%, #00af89 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-[data-theme="dark"] .wgt-title-gradient {
-  background: linear-gradient(135deg, #699bf7 20%, #20c997 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.wgt-hero-accent {
+  color: var(--wgt-color-primary);
+  font-weight: 850;
 }
 
 .wgt-hero-subtitle {
@@ -270,7 +281,7 @@ import ContributorSearch from '../components/ContributorSearch.vue';
   align-items: center;
   font-size: 0.75rem;
   font-weight: 700;
-  color: #00af89;
+  color: var(--wgt-color-success);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -368,9 +379,33 @@ import ContributorSearch from '../components/ContributorSearch.vue';
   margin-bottom: 0.25rem;
 }
 
-.wgt-feature-icon {
-  font-size: 2.2rem;
-  line-height: 1;
+.wgt-feature-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--wgt-radius-lg);
+  background-color: var(--wgt-bg-accent);
+  color: var(--wgt-color-primary);
+  border: 1px solid var(--wgt-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wgt-feature-icon-box.icon-purple {
+  background-color: var(--wgt-cat-extension-bg);
+  color: var(--wgt-cat-extension);
+  border-color: var(--wgt-cat-extension-border);
+}
+
+.wgt-feature-icon-box.icon-teal {
+  background-color: var(--wgt-cat-bot-bg);
+  color: var(--wgt-cat-bot);
+  border-color: var(--wgt-cat-bot-border);
+}
+
+.wgt-feat-svg {
+  width: 20px;
+  height: 20px;
 }
 
 .wgt-feature-badge {
@@ -382,36 +417,43 @@ import ContributorSearch from '../components/ContributorSearch.vue';
   border-radius: 9999px;
   background-color: var(--wgt-bg-subtle);
   color: var(--wgt-text-secondary);
+  border: 1px solid transparent;
 }
 
 .badge-purple {
-  background-color: #f3e8ff;
-  color: #7b1fa2;
+  background-color: #f4eff9;
+  color: #685282;
+  border-color: #e2d5f0;
 }
 
 .badge-teal {
-  background-color: #d5fdf0;
-  color: #046b4c;
+  background-color: #eef6f2;
+  color: #336a56;
+  border-color: #c8e6d8;
 }
 
 .badge-orange {
-  background-color: #ffedd5;
-  color: #c2410c;
+  background-color: #faf4e8;
+  color: #7f5c29;
+  border-color: #eedec2;
 }
 
 [data-theme="dark"] .badge-purple {
-  background-color: #2e1065;
-  color: #d8b4fe;
+  background-color: #291f37;
+  color: #c5b2e3;
+  border-color: #423258;
 }
 
 [data-theme="dark"] .badge-teal {
-  background-color: #064e3b;
-  color: #6ee7b7;
+  background-color: #162b22;
+  color: #80cbb0;
+  border-color: #234537;
 }
 
 [data-theme="dark"] .badge-orange {
-  background-color: #431407;
-  color: #fdba74;
+  background-color: #332717;
+  color: #ddb77b;
+  border-color: #503d24;
 }
 
 .wgt-feature-title {

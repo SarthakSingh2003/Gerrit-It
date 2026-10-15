@@ -104,7 +104,7 @@
                 class="wgt-table-link"
                 :title="`Inspect changes in ${repo.project} on Gerrit`"
               >
-                Inspect ↗
+                Inspect
               </a>
             </td>
           </tr>
@@ -291,6 +291,12 @@ const pagedRepos = computed(() => {
   color: #ffffff;
   border-color: var(--wgt-color-primary);
   font-weight: 600;
+}
+
+[data-theme="dark"] .wgt-cat-filter-btn.btn-active {
+  background-color: #3b5270;
+  border-color: #5c7ca8;
+  color: #e8edf5;
 }
 
 .wgt-table-container {

@@ -28,7 +28,7 @@
             rel="noopener noreferrer"
             class="wgt-link-btn"
           >
-            Inspect on Gerrit ↗
+            Inspect on Gerrit
           </a>
         </div>
       </section>
@@ -74,7 +74,14 @@
 
       <!-- Mentorship and Collaboration Callout Banner -->
       <section class="wgt-mentorship-banner" role="note">
-        <div class="wgt-banner-icon">🤝</div>
+        <div class="wgt-banner-icon">
+          <svg class="wgt-banner-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
         <div class="wgt-banner-text">
           <h3 class="wgt-banner-title">Technical Collaboration & Community Mentorship Guidance</h3>
           <p class="wgt-banner-desc">
@@ -174,7 +181,7 @@ onMounted(() => {
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #7b1fa2;
+  color: var(--wgt-cat-extension, #685282);
   letter-spacing: 0.05em;
 }
 
@@ -245,7 +252,7 @@ onMounted(() => {
 
 .wgt-mentorship-banner {
   background-color: var(--wgt-bg-accent);
-  border: 1px solid #c2e0ff;
+  border: 1px solid var(--wgt-cat-core-border, #d0e0f2);
   border-radius: var(--wgt-radius-lg);
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -254,12 +261,25 @@ onMounted(() => {
 }
 
 [data-theme="dark"] .wgt-mentorship-banner {
-  border-color: #264a7f;
+  border-color: var(--wgt-cat-core-border, #293d5a);
 }
 
 .wgt-banner-icon {
-  font-size: 2rem;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--wgt-radius);
+  background-color: var(--wgt-bg-surface);
+  border: 1px solid var(--wgt-border-subtle);
+  color: var(--wgt-color-primary);
+}
+
+.wgt-banner-svg {
+  width: 20px;
+  height: 20px;
 }
 
 .wgt-banner-title {

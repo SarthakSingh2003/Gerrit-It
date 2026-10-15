@@ -111,6 +111,7 @@
 
 .wgt-challenge-item {
   background-color: var(--wgt-bg-subtle);
+  border: 1px solid var(--wgt-border-subtle);
   border-radius: var(--wgt-radius);
   padding: 1.1rem 1.25rem;
 }

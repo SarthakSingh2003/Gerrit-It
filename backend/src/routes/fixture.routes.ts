@@ -9,7 +9,7 @@ export const SAMPLE_CONTRIBUTOR_SUMMARY: ContributorSummaryResponse = {
     username: 'legoktm',
     displayName: 'Legoktm',
     registeredOn: '2016-07-25 01:42:27.000000000',
-    statusText: '🌻',
+    statusText: 'Core Contributor',
     gerritProfileUrl: 'https://gerrit.wikimedia.org/r/q/owner:458'
   },
   authored: {

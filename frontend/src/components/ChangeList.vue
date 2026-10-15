@@ -99,7 +99,7 @@
                 class="wgt-inspect-btn"
                 title="Inspect on Wikimedia Gerrit"
               >
-                Gerrit ↗
+                Gerrit
               </a>
             </td>
           </tr>
@@ -238,6 +238,12 @@ const inspectChange = (change: NormalizedChange) => {
   font-weight: 600;
 }
 
+[data-theme="dark"] .wgt-filter-pill.active {
+  background-color: #3b5270;
+  border-color: #5c7ca8;
+  color: #e8edf5;
+}
+
 .wgt-change-search {
   padding: 0.4rem 0.75rem;
   font-size: 0.85rem;
@@ -296,7 +302,7 @@ const inspectChange = (change: NormalizedChange) => {
 .wgt-review-vote-tag {
   font-size: 0.75rem;
   font-weight: 700;
-  color: #7b1fa2;
+  color: var(--wgt-cat-extension, #685282);
 }
 
 .wgt-repo-pill {

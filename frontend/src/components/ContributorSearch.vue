@@ -37,7 +37,11 @@
 
     <!-- Error message banner if any -->
     <div v-if="error" class="wgt-error-banner" role="alert">
-      <span class="wgt-error-icon" aria-hidden="true">⚠️</span>
+      <svg class="wgt-error-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
       <div class="wgt-error-content">
         <p class="wgt-error-title">{{ error }}</p>
         <p class="wgt-error-hint">Verify your username on <a href="https://gerrit.wikimedia.org/r/" target="_blank" rel="noopener">Wikimedia Gerrit</a> or try searching by numeric account ID.</p>
@@ -69,7 +73,7 @@
               @{{ candidate.username || 'no-username' }} • Account ID: {{ candidate._account_id }}
             </span>
           </div>
-          <span class="wgt-candidate-action">Select →</span>
+          <span class="wgt-candidate-action">Select</span>
         </button>
       </div>
     </div>
@@ -234,7 +238,7 @@ const selectCandidate = async (candidate: DisambiguationCandidate) => {
 
 .wgt-search-input:focus {
   border-color: var(--wgt-color-primary);
-  box-shadow: 0 0 0 3px rgba(51, 102, 204, 0.25);
+  box-shadow: 0 0 0 3px rgba(78, 112, 154, 0.22);
   outline: none;
 }
 
@@ -296,22 +300,24 @@ const selectCandidate = async (candidate: DisambiguationCandidate) => {
   align-items: flex-start;
   gap: 0.75rem;
   padding: 0.85rem 1rem;
-  background-color: #fee7e7;
-  border: 1px solid #fca5a5;
+  background-color: #faeeee;
+  border: 1px solid #f0cccc;
   border-radius: var(--wgt-radius);
-  color: #991b1b;
+  color: #8a3b3b;
   font-size: 0.9rem;
 }
 
 [data-theme="dark"] .wgt-error-banner {
-  background-color: #3b1414;
-  border-color: #7f1d1d;
-  color: #fca5a5;
+  background-color: #331c1f;
+  border-color: #542d32;
+  color: #e69999;
 }
 
-.wgt-error-icon {
-  font-size: 1.25rem;
-  line-height: 1;
+.wgt-error-svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
 }
 
 .wgt-error-title {

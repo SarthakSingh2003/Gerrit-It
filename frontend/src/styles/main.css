@@ -2,57 +2,117 @@
 @import './print.css';
 
 :root {
-  --wgt-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif;
+  --wgt-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif;
   --wgt-font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 
-  /* Wikimedia Core Brand Colors */
-  --wgt-color-primary: #3366cc;
-  --wgt-color-primary-hover: #23478c;
-  --wgt-color-primary-active: #172d58;
-  --wgt-color-success: #00af89;
-  --wgt-color-warning: #ffaa00;
-  --wgt-color-error: #d33;
-  --wgt-color-destructive: #b32424;
+  /* Professional Pastel Palette - Light Theme */
+  --wgt-color-primary: #4e709a;
+  --wgt-color-primary-hover: #3f5d82;
+  --wgt-color-primary-active: #314a6b;
+  --wgt-color-success: #43816e;
+  --wgt-color-warning: #a67439;
+  --wgt-color-error: #a25252;
+  --wgt-color-destructive: #914141;
 
-  /* Base Light Theme */
-  --wgt-bg-base: #f8f9fa;
+  /* Refined Pastel Category Palette */
+  --wgt-cat-core: #436994;
+  --wgt-cat-core-bg: #eef4fb;
+  --wgt-cat-core-border: #d0e0f2;
+
+  --wgt-cat-extension: #685282;
+  --wgt-cat-extension-bg: #f4eff9;
+  --wgt-cat-extension-border: #e2d5f0;
+
+  --wgt-cat-skin: #7f5c29;
+  --wgt-cat-skin-bg: #faf4e8;
+  --wgt-cat-skin-border: #eedec2;
+
+  --wgt-cat-bot: #336a56;
+  --wgt-cat-bot-bg: #eef6f2;
+  --wgt-cat-bot-border: #c8e6d8;
+
+  --wgt-cat-design: #824364;
+  --wgt-cat-design-bg: #faf0f4;
+  --wgt-cat-design-border: #eed2e0;
+
+  --wgt-cat-infra: #805335;
+  --wgt-cat-infra-bg: #f9f2eb;
+  --wgt-cat-infra-border: #ebd6c5;
+
+  --wgt-cat-other: #546072;
+  --wgt-cat-other-bg: #f0f3f6;
+  --wgt-cat-other-border: #d7dce4;
+
+  /* Base Light Theme - Soft, Balanced Pastel Foundations */
+  --wgt-bg-base: #f5f7fa;
   --wgt-bg-surface: #ffffff;
-  --wgt-bg-subtle: #eaecf0;
-  --wgt-bg-accent: #eaf3ff;
-  --wgt-text-primary: #202122;
-  --wgt-text-secondary: #54595d;
-  --wgt-text-subtle: #72777d;
-  --wgt-border-base: #a2a9b1;
-  --wgt-border-subtle: #c8ccd1;
-  --wgt-border-light: #eaecf0;
-  --wgt-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --wgt-shadow-elevated: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --wgt-bg-subtle: #edf1f6;
+  --wgt-bg-accent: #f0f4fa;
+  --wgt-text-primary: #252a33;
+  --wgt-text-secondary: #535e70;
+  --wgt-text-subtle: #7d899c;
+  --wgt-border-base: #c4cedc;
+  --wgt-border-subtle: #dbe3ed;
+  --wgt-border-light: #edf1f7;
+  --wgt-shadow-card: 0 2px 6px rgba(37, 42, 51, 0.04), 0 1px 2px rgba(37, 42, 51, 0.02);
+  --wgt-shadow-elevated: 0 8px 20px rgba(37, 42, 51, 0.07), 0 2px 6px rgba(37, 42, 51, 0.03);
 
-  /* Spacing */
-  --wgt-radius: 4px;
-  --wgt-radius-lg: 8px;
+  /* Spacing & Radii */
+  --wgt-radius: 6px;
+  --wgt-radius-lg: 12px;
 }
 
 [data-theme="dark"] {
-  --wgt-bg-base: #101418;
-  --wgt-bg-surface: #1e2329;
-  --wgt-bg-subtle: #29303a;
-  --wgt-bg-accent: #19273c;
-  --wgt-text-primary: #eaecf0;
-  --wgt-text-secondary: #c8ccd1;
-  --wgt-text-subtle: #a2a9b1;
-  --wgt-border-base: #54595d;
-  --wgt-border-subtle: #3a424e;
-  --wgt-border-light: #29303a;
-  --wgt-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4);
-  --wgt-shadow-elevated: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --wgt-bg-base: #14171d;
+  --wgt-bg-surface: #1c212a;
+  --wgt-bg-subtle: #252c38;
+  --wgt-bg-accent: #232d3d;
+  --wgt-text-primary: #e8edf5;
+  --wgt-text-secondary: #a8b4c7;
+  --wgt-text-subtle: #7b889d;
+  --wgt-border-base: #3c4657;
+  --wgt-border-subtle: #2b3442;
+  --wgt-border-light: #222a36;
+  --wgt-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --wgt-shadow-elevated: 0 8px 24px rgba(0, 0, 0, 0.42);
 
-  --wgt-color-primary: #699bf7;
-  --wgt-color-primary-hover: #8bb2f9;
-  --wgt-color-primary-active: #aec9fa;
-  --wgt-color-success: #20c997;
-  --wgt-color-warning: #ffc107;
-  --wgt-color-error: #ff6b6b;
+  /* Professional Pastel Palette - Dark Theme (Muted Soft Pastel, No Neons) */
+  --wgt-color-primary: #8aaad6;
+  --wgt-color-primary-hover: #a1bde5;
+  --wgt-color-primary-active: #b8d0f2;
+  --wgt-color-success: #78bca0;
+  --wgt-color-warning: #d9b177;
+  --wgt-color-error: #db8e8e;
+  --wgt-color-destructive: #db8e8e;
+
+  /* Dark Theme Category Tones */
+  --wgt-cat-core: #9bbfe8;
+  --wgt-cat-core-bg: #1a273b;
+  --wgt-cat-core-border: #293d5a;
+
+  --wgt-cat-extension: #c5b2e3;
+  --wgt-cat-extension-bg: #291f37;
+  --wgt-cat-extension-border: #423258;
+
+  --wgt-cat-skin: #ddb77b;
+  --wgt-cat-skin-bg: #332717;
+  --wgt-cat-skin-border: #503d24;
+
+  --wgt-cat-bot: #80cbb0;
+  --wgt-cat-bot-bg: #162b22;
+  --wgt-cat-bot-border: #234537;
+
+  --wgt-cat-design: #dda1bf;
+  --wgt-cat-design-bg: #331c28;
+  --wgt-cat-design-border: #502b3f;
+
+  --wgt-cat-infra: #dcad8b;
+  --wgt-cat-infra-bg: #322217;
+  --wgt-cat-infra-border: #4e3625;
+
+  --wgt-cat-other: #9eabbf;
+  --wgt-cat-other-bg: #202632;
+  --wgt-cat-other-border: #323d4e;
 }
 
 /* Reduced Motion */
@@ -78,13 +138,15 @@ html, body {
   font-family: var(--wgt-font-family);
   background-color: var(--wgt-bg-base);
   color: var(--wgt-text-primary);
-  line-height: 1.5;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
   color: var(--wgt-color-primary);
   text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 a:hover {
@@ -125,45 +187,53 @@ a:hover {
   box-shadow: var(--wgt-shadow-elevated);
 }
 
+/* Refined Pastel Status Badges */
 .wgt-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.2rem 0.6rem;
+  padding: 0.22rem 0.65rem;
   border-radius: 9999px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.25;
+  border: 1px solid transparent;
 }
 
 .wgt-badge-merged {
-  background-color: #d5fdf0;
-  color: #046b4c;
+  background-color: #eaf5f0;
+  color: #27604d;
+  border-color: #c8e8dc;
 }
 
 .wgt-badge-open {
-  background-color: #eaf3ff;
-  color: #174ea6;
+  background-color: #edf3fa;
+  color: #325580;
+  border-color: #cfe0f3;
 }
 
 .wgt-badge-abandoned {
-  background-color: #fee7e7;
-  color: #b32424;
+  background-color: #faeeee;
+  color: #8a3b3b;
+  border-color: #f2d1d1;
 }
 
 [data-theme="dark"] .wgt-badge-merged {
-  background-color: #0b3d2c;
-  color: #79f2c3;
+  background-color: #172c23;
+  color: #8ad9bd;
+  border-color: #264a3b;
 }
 
 [data-theme="dark"] .wgt-badge-open {
-  background-color: #1a2f4c;
-  color: #93bcf8;
+  background-color: #1a273b;
+  color: #9bbff2;
+  border-color: #293e5e;
 }
 
 [data-theme="dark"] .wgt-badge-abandoned {
-  background-color: #441717;
-  color: #fca5a5;
+  background-color: #331b1f;
+  color: #e69999;
+  border-color: #522d33;
 }
 
 /* RTL Layout Helpers */

@@ -22,8 +22,8 @@
           <div class="wgt-identity-meta">
             <div class="wgt-name-row">
               <h1 class="wgt-profile-name">{{ summary.contributor.displayName }}</h1>
-              <span v-if="summary.contributor.statusText" class="wgt-status-badge" :title="`Status: ${summary.contributor.statusText}`">
-                {{ summary.contributor.statusText }}
+              <span v-if="cleanStatusText" class="wgt-status-badge" :title="`Status: ${cleanStatusText}`">
+                {{ cleanStatusText }}
               </span>
             </div>
             <div class="wgt-sub-meta">
@@ -48,14 +48,12 @@
             class="wgt-btn-outline"
           >
             <span>View on Gerrit</span>
-            <span aria-hidden="true">↗</span>
           </a>
           <router-link
             :to="`/user/${encodeURIComponent(summary.contributor.username || summary.contributor.accountId)}/report`"
             class="wgt-btn-primary"
           >
             <span>Generate Report</span>
-            <span aria-hidden="true">→</span>
           </router-link>
         </div>
       </section>
@@ -103,7 +101,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, watch } from 'vue';
+import { computed, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useContributor } from '../composables/useContributor.js';
 import ContributorSearch from '../components/ContributorSearch.vue';
@@ -126,6 +124,13 @@ const {
   loadChanges,
   setDateRange
 } = useContributor();
+
+const cleanStatusText = computed(() => {
+  if (!summary.value?.contributor.statusText) return '';
+  return summary.value.contributor.statusText
+    .replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F1E0}-\u{1F1FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F900}-\u{1F9FF}\u{1FA70}-\u{1FAFF}]/gu, '')
+    .trim();
+});
 
 const loadRouteUser = async () => {
   const id = route.params.identifier as string;
@@ -203,15 +208,20 @@ onMounted(() => {
 .wgt-avatar-box {
   width: 68px;
   height: 68px;
-  background: linear-gradient(135deg, #3366cc, #00af89);
+  background-color: var(--wgt-color-primary);
   color: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 800;
-  font-size: 2rem;
-  box-shadow: 0 3px 8px rgba(51, 102, 204, 0.3);
+  font-weight: 700;
+  font-size: 1.85rem;
+}
+
+[data-theme="dark"] .wgt-avatar-box {
+  background-color: #354760;
+  color: #dbe7f7;
+  border: 1px solid #4a6182;
 }
 
 .wgt-identity-meta {
@@ -292,6 +302,16 @@ onMounted(() => {
 
 .wgt-btn-primary:hover {
   background-color: var(--wgt-color-primary-hover);
+}
+
+[data-theme="dark"] .wgt-btn-primary {
+  background-color: #3b5270;
+  border-color: #5c7ca8;
+  color: #e8edf5;
+}
+
+[data-theme="dark"] .wgt-btn-primary:hover {
+  background-color: #496386;
 }
 
 .wgt-filter-bar {
