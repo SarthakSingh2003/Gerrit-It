@@ -6,6 +6,6 @@ contact_links:
   - name: Wikimedia Codex Component Library
     url: https://doc.wikimedia.org/codex/
     about: Official design system documentation and tokens for MediaWiki/Vue.
-  - name: WikiGeeriTracker Security Advisory
-    url: https://github.com/wikimedia/wikigeeritracker/security/policy
+  - name: WikiGerritTracker Security Advisory
+    url: https://github.com/SarthakSingh2003/WikiGerritTracker/security/policy
     about: Please report potential security vulnerabilities privately according to SECURITY.md.

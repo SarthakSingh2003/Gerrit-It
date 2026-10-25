@@ -75,8 +75,8 @@ wikigerrittracker/
 ### Installation
 
 ```bash
-git clone https://github.com/wikimedia/wikigerrittracker.git
-cd wikigerrittracker
+git clone https://github.com/SarthakSingh2003/WikiGerritTracker.git
+cd WikiGerritTracker
 
 # Install root, backend, and frontend dependencies
 npm install
@@ -90,7 +90,7 @@ Copy the documented template:
 cp .env.example .env
 ```
 
-Key environment variables (documented with defaults in [.env.example](file:///e:/WikiGerritTracker/.env.example)):
+Key environment variables (documented with defaults in [.env.example](.env.example)):
 - `PORT` (default: `3000`): Port for the Express backend server.
 - `GERRIT_API_URL` (default: `https://gerrit.wikimedia.org/r`): Wikimedia Gerrit upstream API.
 - `USE_FIXTURES` (default: `false`): Enable deterministic offline fixture mode (recommended for CI or offline dev).
@@ -132,7 +132,7 @@ npm run test:frontend
 
 ## API Overview
 
-All backend endpoints return standardized JSON (`{ data, meta, error }`). Detailed specs are in [docs/API_SPECIFICATION.md](file:///e:/WikiGerritTracker/docs/API_SPECIFICATION.md).
+All backend endpoints return standardized JSON (`{ data, meta, error }`). Detailed specs are in [docs/API_SPECIFICATION.md](docs/API_SPECIFICATION.md).
 
 | Endpoint | Method | Description |
 |---|---|---|
@@ -174,14 +174,14 @@ npm start
 ## Contributing & Community
 
 Contributions are warmly welcome! Please see:
-- [CONTRIBUTING.md](file:///e:/WikiGerritTracker/CONTRIBUTING.md) for local development, commit style, and PR workflow.
-- [CODE_OF_CONDUCT.md](file:///e:/WikiGerritTracker/CODE_OF_CONDUCT.md) for community standards.
-- [SECURITY.md](file:///e:/WikiGerritTracker/SECURITY.md) for responsible vulnerability disclosure.
-- [SUPPORT.md](file:///e:/WikiGerritTracker/SUPPORT.md) for questions and support channels.
+- [CONTRIBUTING.md](CONTRIBUTING.md) for local development, commit style, and PR workflow.
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for community standards.
+- [SECURITY.md](SECURITY.md) for responsible vulnerability disclosure.
+- [SUPPORT.md](SUPPORT.md) for questions and support channels.
 
 ---
 
 ## License
 
-This project is licensed under the **GNU General Public License v3.0 or later (GPL-3.0-or-later)**. See the [LICENSE](file:///e:/WikiGerritTracker/LICENSE) file for details.
+This project is licensed under the **GNU General Public License v3.0 or later (GPL-3.0-or-later)**. See the [LICENSE](LICENSE) file for details.
 

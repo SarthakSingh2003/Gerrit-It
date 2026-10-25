@@ -18,8 +18,8 @@ This guide explains how to set up, build, and debug **WikiGerritTracker** locall
 Clone and install dependencies:
 
 ```bash
-git clone https://github.com/wikimedia/wikigerrittracker.git
-cd wikigerrittracker
+git clone https://github.com/SarthakSingh2003/WikiGerritTracker.git
+cd WikiGerritTracker
 npm install
 ```
 

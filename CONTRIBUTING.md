@@ -8,7 +8,7 @@ This document outlines the development workflow, testing standards, and pull req
 
 ## 1. Code of Conduct
 
-All contributors are expected to uphold a welcoming, respectful, and collaborative environment. Please review our [Code of Conduct](file:///e:/WikiGerritTracker/CODE_OF_CONDUCT.md) before participating.
+All contributors are expected to uphold a welcoming, respectful, and collaborative environment. Please review our [Code of Conduct](CODE_OF_CONDUCT.md) before participating.
 
 ---
 
@@ -24,8 +24,8 @@ All contributors are expected to uphold a welcoming, respectful, and collaborati
 Clone the repository and install all dependencies:
 
 ```bash
-git clone https://github.com/wikimedia/wikigerrittracker.git
-cd wikigerrittracker
+git clone https://github.com/SarthakSingh2003/WikiGerritTracker.git
+cd WikiGerritTracker
 npm install
 ```
 
