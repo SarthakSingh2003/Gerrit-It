@@ -17,21 +17,31 @@ export class ContributorService {
   constructor(private client: GerritClient = gerritClient) {}
 
   /**
-   * Fetches raw authored changes for a contributor with caching.
+   * Fetches raw authored changes for a contributor with caching and optional date range.
    */
   async getRawAuthoredChanges(
     account: GerritAccount,
-    options?: { maxPages?: number }
+    options?: { maxPages?: number; dateRange?: DateRangeFilter }
   ): Promise<{ changes: GerritChange[]; complete: boolean; warning?: string; cached: boolean }> {
     const cache = getCacheService();
-    const cacheKey = buildCacheKey('changes', account._account_id);
+    const cacheKey = buildCacheKey('changes', account._account_id, {
+      after: options?.dateRange?.startDate,
+      before: options?.dateRange?.endDate
+    });
     const cached = await cache.get<{ changes: GerritChange[]; complete: boolean; warning?: string }>(cacheKey);
 
     if (cached) {
       return { ...cached, cached: true };
     }
 
-    const query = `owner:${account._account_id}`;
+    let query = `owner:${account._account_id}`;
+    if (options?.dateRange?.startDate) {
+      query += ` after:"${options.dateRange.startDate}"`;
+    }
+    if (options?.dateRange?.endDate) {
+      query += ` before:"${options.dateRange.endDate}"`;
+    }
+
     const result = await this.client.fetchChanges(query, {
       includeLabels: false,
       maxPages: options?.maxPages
@@ -43,20 +53,23 @@ export class ContributorService {
       warning: result.truncatedReason
     };
 
-    // Cache lifetime query
+    // Cache query
     await cache.set(cacheKey, payload);
     return { ...payload, cached: false };
   }
 
   /**
-   * Fetches raw review changes where contributor participated with caching.
+   * Fetches raw review changes where contributor participated with caching and optional date range.
    */
   async getRawReviewChanges(
     account: GerritAccount,
-    options?: { maxPages?: number }
+    options?: { maxPages?: number; dateRange?: DateRangeFilter }
   ): Promise<{ changes: GerritChange[]; complete: boolean; warning?: string; cached: boolean }> {
     const cache = getCacheService();
-    const cacheKey = buildCacheKey('reviews', account._account_id);
+    const cacheKey = buildCacheKey('reviews', account._account_id, {
+      after: options?.dateRange?.startDate,
+      before: options?.dateRange?.endDate
+    });
     const cached = await cache.get<{ changes: GerritChange[]; complete: boolean; warning?: string }>(cacheKey);
 
     if (cached) {
@@ -64,7 +77,14 @@ export class ContributorService {
     }
 
     // Exclude self-reviews explicitly
-    const query = `reviewer:${account._account_id} -owner:${account._account_id}`;
+    let query = `reviewer:${account._account_id} -owner:${account._account_id}`;
+    if (options?.dateRange?.startDate) {
+      query += ` after:"${options.dateRange.startDate}"`;
+    }
+    if (options?.dateRange?.endDate) {
+      query += ` before:"${options.dateRange.endDate}"`;
+    }
+
     const result = await this.client.fetchChanges(query, {
       includeLabels: true,
       maxPages: options?.maxPages
@@ -103,8 +123,8 @@ export class ContributorService {
     );
 
     const [authoredResult, reviewResult] = await Promise.all([
-      this.getRawAuthoredChanges(account),
-      this.getRawReviewChanges(account)
+      this.getRawAuthoredChanges(account, { dateRange }),
+      this.getRawReviewChanges(account, { dateRange })
     ]);
 
     const warnings: string[] = [];

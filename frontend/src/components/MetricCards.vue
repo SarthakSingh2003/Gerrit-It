@@ -12,7 +12,7 @@
       </div>
       <div class="wgt-meta-right">
         <span class="wgt-meta-time">Updated: {{ formattedDate }}</span>
-        <span v-if="summary.metadata.paginationBudgetHit" class="wgt-partial-warning" title="Results capped at safety limit">
+        <span v-if="summary.metadata.paginationBudgetHit" class="wgt-partial-warning" title="Lifetime results capped at the 2,000 most recent records per category. Select any Days-Wise timeframe (e.g. 30, 90, 365 Days) for 100% uncapped data.">
           Budget Capped
         </span>
       </div>
