@@ -468,9 +468,30 @@ const selectCandidate = async (candidate: DisambiguationCandidate) => {
   border: 0;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .wgt-search-form {
     flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .wgt-search-submit {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.75rem 1.25rem;
+    justify-content: center;
+  }
+
+  .wgt-candidate-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .wgt-sample-chip {
+    padding: 0.35rem 0.65rem;
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
   }
 }
 </style>

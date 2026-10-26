@@ -175,7 +175,8 @@ const formattedFirstDate = computed(() => {
 .wgt-meta-left, .wgt-meta-right {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .wgt-meta-tag {
@@ -204,7 +205,7 @@ const formattedFirstDate = computed(() => {
 
 .wgt-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
   gap: 1.25rem;
 }
 
@@ -283,5 +284,42 @@ const formattedFirstDate = computed(() => {
 
 [data-theme="dark"] .wgt-rate-badge {
   color: #78bca0;
+}
+
+@media (max-width: 640px) {
+  .wgt-meta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .wgt-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .wgt-metric-card {
+    padding: 1rem 0.85rem;
+    min-height: 120px;
+  }
+
+  .wgt-card-value {
+    font-size: 1.6rem;
+  }
+
+  .font-compact {
+    font-size: 1.05rem;
+  }
+
+  .wgt-card-title {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .wgt-cards-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

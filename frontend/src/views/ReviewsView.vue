@@ -217,7 +217,7 @@ onMounted(() => {
 
 .wgt-review-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: 1.25rem;
 }
 
@@ -300,5 +300,61 @@ onMounted(() => {
   font-size: 0.78rem;
   color: var(--wgt-text-subtle);
   line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .wgt-reviews-page {
+    gap: 1.25rem;
+    padding: 0.75rem 0 2.5rem;
+  }
+
+  .wgt-reviews-layout {
+    gap: 1.25rem;
+  }
+
+  .wgt-reviews-header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.25rem 1rem;
+    gap: 1rem;
+  }
+
+  .wgt-title {
+    font-size: clamp(1.3rem, 4.5vw, 1.85rem);
+    word-break: break-word;
+  }
+
+  .wgt-header-links,
+  .wgt-link-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .wgt-review-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .wgt-review-card {
+    padding: 1rem 0.85rem;
+  }
+
+  .wgt-rc-val {
+    font-size: 1.6rem;
+  }
+
+  .wgt-mentorship-banner {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .wgt-review-cards-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

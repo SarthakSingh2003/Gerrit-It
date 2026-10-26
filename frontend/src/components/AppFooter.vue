@@ -42,7 +42,7 @@
 
 .wgt-footer-inner {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 2rem;
 }
 
@@ -80,5 +80,17 @@
   line-height: 1.4;
   font-size: 0.8rem;
   color: var(--wgt-text-subtle);
+}
+
+@media (max-width: 640px) {
+  .wgt-footer {
+    margin-top: 2rem;
+    padding: 1.75rem 0 1.5rem;
+  }
+
+  .wgt-footer-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 </style>

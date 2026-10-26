@@ -301,10 +301,13 @@ const pagedRepos = computed(() => {
 
 .wgt-table-container {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
 }
 
 .wgt-data-table {
   width: 100%;
+  min-width: 620px;
   border-collapse: collapse;
   font-size: 0.88rem;
   text-align: left;
@@ -412,5 +415,24 @@ const pagedRepos = computed(() => {
 
 .wgt-page-current {
   font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .wgt-table-header-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .wgt-table-search,
+  .wgt-repo-search-input {
+    width: 100%;
+  }
+
+  .wgt-table-pagination {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    text-align: center;
+  }
 }
 </style>

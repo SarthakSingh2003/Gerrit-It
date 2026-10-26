@@ -137,4 +137,26 @@
   padding: 0.85rem 1rem;
   border-radius: var(--wgt-radius);
 }
+
+@media (max-width: 768px) {
+  .wgt-about-page {
+    padding: 0.75rem 0 2rem;
+  }
+
+  .wgt-about-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .wgt-about-title {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+
+  .wgt-lead {
+    font-size: 0.95rem;
+  }
+
+  .wgt-challenge-item {
+    padding: 1rem 0.85rem;
+  }
+}
 </style>

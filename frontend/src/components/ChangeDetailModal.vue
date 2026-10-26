@@ -105,6 +105,9 @@ defineEmits<{
   border: 1px solid var(--wgt-border-subtle);
   width: 100%;
   max-width: 600px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
   box-shadow: var(--wgt-shadow-elevated);
   overflow: hidden;
 }
@@ -146,6 +149,7 @@ defineEmits<{
   flex-direction: column;
   gap: 0.75rem;
   font-size: 0.9rem;
+  overflow-y: auto;
 }
 
 .wgt-modal-field {
@@ -224,5 +228,34 @@ defineEmits<{
 .wgt-close-btn:hover {
   border-color: var(--wgt-color-primary);
   color: var(--wgt-color-primary);
+}
+
+@media (max-width: 520px) {
+  .wgt-modal-backdrop {
+    padding: 0.5rem;
+  }
+
+  .wgt-modal-header,
+  .wgt-modal-body,
+  .wgt-modal-footer {
+    padding: 1rem;
+  }
+
+  .wgt-modal-field {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .wgt-modal-footer {
+    flex-direction: column;
+  }
+
+  .wgt-gerrit-btn,
+  .wgt-close-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
 }
 </style>

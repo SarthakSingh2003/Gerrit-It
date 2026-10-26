@@ -326,4 +326,68 @@ onMounted(() => {
   padding: 4rem 1rem;
   color: var(--wgt-text-subtle);
 }
+
+@media (max-width: 768px) {
+  .wgt-contributor-page {
+    gap: 1.25rem;
+    padding: 0.75rem 0 2.5rem;
+  }
+
+  .wgt-profile-layout {
+    gap: 1.25rem;
+  }
+
+  .wgt-identity-header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.25rem 1rem;
+    gap: 1.25rem;
+  }
+
+  .wgt-identity-left {
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .wgt-avatar-box {
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+    font-size: 1.5rem;
+  }
+
+  .wgt-profile-name {
+    font-size: clamp(1.25rem, 4.5vw, 1.6rem);
+    word-break: break-word;
+  }
+
+  .wgt-name-row {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .wgt-identity-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .wgt-btn-outline,
+  .wgt-btn-primary {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .wgt-filter-bar {
+    padding: 0.85rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .wgt-identity-actions {
+    grid-template-columns: 1fr;
+  }
+}
 </style>

@@ -114,7 +114,7 @@ const reviewedRatio = computed(() => {
 
 .wgt-charts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   gap: 1.75rem;
 }
 
@@ -122,7 +122,7 @@ const reviewedRatio = computed(() => {
   background-color: var(--wgt-bg-surface);
   border: 1px solid var(--wgt-border-subtle);
   border-radius: var(--wgt-radius-lg);
-  padding: 2rem;
+  padding: 1.75rem;
   box-shadow: var(--wgt-shadow-card);
 }
 
@@ -275,7 +275,8 @@ const reviewedRatio = computed(() => {
 .wgt-ratio-legend {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
   font-size: 0.8rem;
   color: var(--wgt-text-secondary);
 }
@@ -297,4 +298,23 @@ const reviewedRatio = computed(() => {
 
 [data-theme="dark"] .dot-authored { background-color: #8aaad6; }
 [data-theme="dark"] .dot-reviewed { background-color: #c5b2e3; }
+
+@media (max-width: 768px) {
+  .wgt-charts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .wgt-chart-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .wgt-focus-num {
+    font-size: 1.75rem;
+  }
+
+  .wgt-focus-metrics {
+    gap: 0.5rem;
+  }
+}
 </style>

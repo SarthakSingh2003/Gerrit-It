@@ -270,7 +270,7 @@ import ContributorSearch from '../components/ContributorSearch.vue';
 
 .wgt-days-banner-text {
   flex: 1;
-  min-width: 320px;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -496,10 +496,39 @@ import ContributorSearch from '../components/ContributorSearch.vue';
     padding: 3rem 1.5rem;
   }
   .wgt-hero-title {
-    font-size: 2.25rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
   }
   .wgt-hero-stat-sep {
     display: none;
+  }
+  .wgt-days-banner {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .wgt-hero {
+    padding: 2rem 1rem;
+    gap: 1.25rem;
+  }
+  .wgt-hero-title {
+    font-size: clamp(1.6rem, 6vw, 2.1rem);
+  }
+  .wgt-hero-subtitle {
+    font-size: 0.95rem;
+  }
+  .wgt-hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .wgt-features-grid {
+    grid-template-columns: 1fr;
+  }
+  .wgt-feature-card {
+    padding: 1.5rem 1.25rem;
   }
 }
 </style>

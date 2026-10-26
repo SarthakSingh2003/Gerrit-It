@@ -412,6 +412,21 @@ onMounted(() => {
   padding: 2rem;
   font-family: inherit;
   line-height: 1.6;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+.wgt-markdown-rendered {
+  word-break: break-word;
+}
+
+.wgt-markdown-rendered :deep(table) {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.88rem;
 }
 
 .wgt-markdown-rendered :deep(h1) {
@@ -467,13 +482,6 @@ onMounted(() => {
   margin-bottom: 0.25rem;
 }
 
-.wgt-markdown-rendered :deep(table) {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-  font-size: 0.88rem;
-}
-
 .wgt-markdown-rendered :deep(th),
 .wgt-markdown-rendered :deep(td) {
   border: 1px solid var(--wgt-border-light);
@@ -498,5 +506,39 @@ onMounted(() => {
   text-align: center;
   padding: 3rem;
   color: var(--wgt-text-subtle);
+}
+
+@media (max-width: 768px) {
+  .wgt-report-gen-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .wgt-report-title {
+    font-size: 1.2rem;
+  }
+
+  .wgt-report-toolbar {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .wgt-tool-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    min-height: 40px;
+  }
+
+  .wgt-report-preview {
+    padding: 1.25rem 1rem;
+  }
+
+  .wgt-report-config {
+    padding: 1rem 0.85rem;
+  }
 }
 </style>

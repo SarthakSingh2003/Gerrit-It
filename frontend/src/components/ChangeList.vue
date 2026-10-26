@@ -256,10 +256,13 @@ const inspectChange = (change: NormalizedChange) => {
 
 .wgt-changes-table-container {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
 }
 
 .wgt-changes-table {
   width: 100%;
+  min-width: 600px;
   border-collapse: collapse;
   font-size: 0.88rem;
 }
@@ -363,5 +366,45 @@ const inspectChange = (change: NormalizedChange) => {
 .wgt-page-nav button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .wgt-changelist-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .wgt-changelist-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .wgt-status-filters {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    width: 100%;
+  }
+
+  .wgt-filter-pill {
+    padding: 0.35rem 0.65rem;
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .wgt-change-search {
+    width: 100%;
+    min-height: 40px;
+  }
+
+  .wgt-pagination-bar {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    text-align: center;
+  }
 }
 </style>

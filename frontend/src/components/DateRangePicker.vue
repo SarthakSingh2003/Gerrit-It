@@ -196,4 +196,37 @@ const emitCustomRange = () => {
 [data-theme="dark"] .wgt-apply-btn:hover {
   background-color: #496386;
 }
+
+@media (max-width: 640px) {
+  .wgt-preset-chips {
+    gap: 0.35rem;
+  }
+
+  .wgt-chip-btn {
+    padding: 0.35rem 0.65rem;
+    min-height: 34px;
+    font-size: 0.78rem;
+  }
+
+  .wgt-custom-range-inputs {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .wgt-date-field {
+    width: 100%;
+  }
+
+  .wgt-input {
+    width: 100%;
+    min-height: 40px;
+  }
+
+  .wgt-apply-btn {
+    width: 100%;
+    min-height: 40px;
+    text-align: center;
+  }
+}
 </style>
