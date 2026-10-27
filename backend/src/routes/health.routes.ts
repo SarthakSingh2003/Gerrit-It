@@ -11,7 +11,7 @@ router.get('/health', async (_req: Request, res: Response) => {
     status: 'healthy',
     uptimeSeconds: Math.floor(process.uptime()),
     timestamp: new Date().toISOString(),
-    service: 'WikiGerritTracker Backend',
+    service: 'Gerrit-It Backend',
     version: '1.0.0',
     cache: {
       type: cacheStats.type,
@@ -23,7 +23,7 @@ router.get('/health', async (_req: Request, res: Response) => {
 
 router.get('/version', (_req: Request, res: Response) => {
   res.json({
-    name: 'WikiGerritTracker',
+    name: 'Gerrit-It',
     version: '1.0.0',
     license: 'GPL-3.0-or-later',
     docs: 'https://doc.wikimedia.org/codex/',

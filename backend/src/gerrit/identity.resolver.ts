@@ -42,7 +42,7 @@ export async function resolveCanonicalAccount(
 
   const requestHeaders = {
     'Accept': 'application/json',
-    'User-Agent': 'WikiGerritTracker/1.0 (https://gerrit.wikimedia.org; community-tool)'
+    'User-Agent': 'Gerrit-It/1.0 (https://gerrit.wikimedia.org; community-tool)'
   };
 
   if (/^\d+$/.test(trimmed)) {

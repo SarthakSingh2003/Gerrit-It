@@ -2,12 +2,12 @@
   <header class="wgt-header" role="banner">
     <div class="wgt-container wgt-header-inner">
       <div class="wgt-brand-group">
-        <router-link to="/" class="wgt-brand-link" aria-label="WikiGerritTracker Home" @click="isMobileMenuOpen = false">
+        <router-link to="/" class="wgt-brand-link" aria-label="Gerrit-It Home" @click="isMobileMenuOpen = false">
           <div class="wgt-logo-mark" aria-hidden="true">
-            <span class="wgt-logo-g">W</span>
+            <span class="wgt-logo-g">G</span>
           </div>
           <div class="wgt-brand-text">
-            <span class="wgt-title">WikiGerritTracker</span>
+            <span class="wgt-title">Gerrit-It</span>
             <span class="wgt-subtitle">Wikimedia Contributor Analytics</span>
           </div>
         </router-link>

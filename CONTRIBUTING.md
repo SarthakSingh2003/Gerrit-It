@@ -1,6 +1,6 @@
-# Contributing to WikiGerritTracker
+# Contributing to Gerrit-It
 
-Thank you for your interest in contributing to **WikiGerritTracker**! We welcome contributions from developers, designers, technical writers, and Wikimedia community members.
+Thank you for your interest in contributing to **Gerrit-It**! We welcome contributions from developers, designers, technical writers, and Wikimedia community members.
 
 This document outlines the development workflow, testing standards, and pull request guidelines.
 

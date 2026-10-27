@@ -23,7 +23,7 @@ router.get('/classification', (req: Request, res: Response) => {
   res.json({
     data: responseData,
     meta: {
-      source: 'WikiGerritTracker Classifier',
+      source: 'Gerrit-It Classifier',
       generatedAt: new Date().toISOString(),
       cached: false,
       stale: false,

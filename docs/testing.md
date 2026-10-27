@@ -1,6 +1,6 @@
-# Testing Guide — WikiGerritTracker
+# Testing Guide — Gerrit-It
 
-WikiGerritTracker maintains a comprehensive automated test suite covering unit tests, integration tests, and component behavior.
+Gerrit-It maintains a comprehensive automated test suite covering unit tests, integration tests, and component behavior.
 
 ---
 

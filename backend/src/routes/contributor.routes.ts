@@ -200,7 +200,7 @@ router.get(
         res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
         res.setHeader(
           'Content-Disposition',
-          `inline; filename="wikigerrit-report-${summary.contributor.username || summary.contributor.accountId}.md"`
+          `inline; filename="gerrit-it-report-${summary.contributor.username || summary.contributor.accountId}.md"`
         );
         res.send(markdown);
         return;

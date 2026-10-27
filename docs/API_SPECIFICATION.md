@@ -1,4 +1,4 @@
-# WikiGerritTracker — Backend API Specification
+# Gerrit-It — Backend API Specification
 
 All endpoints follow a uniform JSON response contract:
 
@@ -33,7 +33,7 @@ Checks server operational readiness, uptime, and cache statistics.
   "status": "healthy",
   "uptimeSeconds": 120,
   "timestamp": "2026-10-12T12:00:00.000Z",
-  "service": "WikiGerritTracker Backend",
+  "service": "Gerrit-It Backend",
   "version": "1.0.0",
   "cache": {
     "type": "memory",

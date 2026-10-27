@@ -1,4 +1,4 @@
-# WikiGerritTracker API Reference
+# Gerrit-It API Reference
 
 For the full REST API endpoint reference, see **[API_SPECIFICATION.md](API_SPECIFICATION.md)**.
 

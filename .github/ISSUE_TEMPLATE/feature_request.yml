@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for suggesting an enhancement to WikiGerritTracker!
+        Thank you for suggesting an enhancement to Gerrit-It!
 
   - type: textarea
     id: problem
@@ -21,7 +21,7 @@ body:
     id: solution
     attributes:
       label: Proposed Solution or Metric
-      description: Describe what you would like WikiGerritTracker to do.
+      description: Describe what you would like Gerrit-It to do.
       placeholder: Add support for repository pattern X or scholarship window Y...
     validations:
       required: true

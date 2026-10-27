@@ -1,6 +1,6 @@
-# Developer Guide — WikiGerritTracker
+# Developer Guide — Gerrit-It
 
-This guide explains how to set up, build, and debug **WikiGerritTracker** locally.
+This guide explains how to set up, build, and debug **Gerrit-It** locally.
 
 ---
 

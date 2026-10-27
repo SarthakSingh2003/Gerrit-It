@@ -1,4 +1,4 @@
-# WikiGerritTracker Architecture
+# Gerrit-It Architecture
 
 This document provides an overview of the data pipeline, subsystem breakdown, caching, concurrency, and classification rules.
 
@@ -8,7 +8,7 @@ This document provides an overview of the data pipeline, subsystem breakdown, ca
 [Browser Client]
        │
        ▼ (HTTPS Same-Origin REST /api/*)
-[WikiGerritTracker Express Backend]
+[Gerrit-It Express Backend]
   ├── Input Validation (Zod schemas)
   ├── Identity Resolution (Gerrit /accounts/)
   ├── Request Coalescing (single-flight)

@@ -1,6 +1,6 @@
 # Repository Classification Engine
 
-WikiGerritTracker incorporates an ordered, deterministic classification engine that maps upstream Gerrit project names into recognizable Wikimedia technical subsystems.
+Gerrit-It incorporates an ordered, deterministic classification engine that maps upstream Gerrit project names into recognizable Wikimedia technical subsystems.
 
 ---
 

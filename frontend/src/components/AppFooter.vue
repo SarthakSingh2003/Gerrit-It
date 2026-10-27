@@ -2,7 +2,7 @@
   <footer class="wgt-footer wgt-no-print" role="contentinfo">
     <div class="wgt-container wgt-footer-inner">
       <div class="wgt-footer-col">
-        <p class="wgt-footer-title">WikiGerritTracker</p>
+        <p class="wgt-footer-title">Gerrit-It</p>
         <p class="wgt-footer-desc">
           Wikimedia Gerrit Contributor Analytics, Code Review Intelligence & Contribution Reporting Platform.
         </p>
@@ -23,7 +23,7 @@
       <div class="wgt-footer-col">
         <p class="wgt-footer-heading">Community & Attribution</p>
         <p class="wgt-footer-disclaimer">
-          WikiGerritTracker is an independent community utility for technical contributors and developer communities. It retrieves public Gerrit records and does not constitute official certification by the Wikimedia Foundation.
+          Gerrit-It is an independent community utility for technical contributors and developer communities. It retrieves public Gerrit records and does not constitute official certification by the Wikimedia Foundation.
         </p>
       </div>
     </div>

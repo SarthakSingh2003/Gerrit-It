@@ -1,6 +1,6 @@
 # Contribution Metric Definitions & Semantic Standards
 
-WikiGerritTracker strictly documents how each analytical metric is calculated from Gerrit REST records.
+Gerrit-It strictly documents how each analytical metric is calculated from Gerrit REST records.
 
 ---
 

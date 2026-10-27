@@ -1,13 +1,13 @@
-# Deploying WikiGerritTracker on Wikimedia Toolforge (Node 20)
+# Deploying Gerrit-It on Wikimedia Toolforge (Node 20)
 
-This guide provides step-by-step instructions for publishing and operating **WikiGerritTracker** on [Wikimedia Toolforge](https://wikitech.wikimedia.org/wiki/Help:Toolforge) using the **Node 20** runtime.
+This guide provides step-by-step instructions for publishing and operating **Gerrit-It** on [Wikimedia Toolforge](https://wikitech.wikimedia.org/wiki/Help:Toolforge) using the **Node 20** runtime.
 
 ---
 
 ## 1. Prerequisites
 
 1. A Wikimedia developer account with Toolforge access.
-2. A registered tool account on Toolforge (e.g. `wikigerrittracker` or your custom tool name).
+2. A registered tool account on Toolforge (e.g. `gerritit` or your custom tool name).
 3. SSH access configured to `login.tools.wmflabs.org`.
 
 ---
@@ -15,7 +15,7 @@ This guide provides step-by-step instructions for publishing and operating **Wik
 ## 2. Environment & Architectural Details
 
 - **Ingress Port:** Wikimedia Toolforge Kubernetes ingress directs external HTTPS web traffic (`https://<toolname>.toolforge.org`) to container port **`8000`**.
-- **Dual-Mode Node.js Server:** In production mode (`NODE_ENV=production`), WikiGerritTracker automatically binds to port `8000` (or the `$PORT` environment variable).
+- **Dual-Mode Node.js Server:** In production mode (`NODE_ENV=production`), Gerrit-It automatically binds to port `8000` (or the `$PORT` environment variable).
 - **Unified Service:** The Express backend serves both the `/api/*` endpoints and the compiled static Vite frontend bundle from `frontend/dist/`.
 
 ---
@@ -33,7 +33,7 @@ become <toolname>
 ### Step 2: Trigger a Build
 Run the build command specifying your git repository URL:
 ```bash
-toolforge build start https://github.com/<your-username>/WikiGerritTracker
+toolforge build start https://github.com/<your-username>/Gerrit-It
 ```
 
 To follow the build output:
@@ -62,7 +62,7 @@ become <toolname>
 ### Step 2: Clone or Update the Repository
 ```bash
 # If initial setup:
-git clone https://github.com/<your-username>/WikiGerritTracker.git app
+git clone https://github.com/<your-username>/Gerrit-It.git app
 cd app
 
 # If updating existing checkout:
@@ -117,7 +117,7 @@ webservice stop
 
 ## 6. Optional: Redis In-Memory Cache on Toolforge
 
-By default, WikiGerritTracker runs with a high-performance, bounded in-process LRU cache (`MemoryLruCache`) that requires zero external infrastructure.
+By default, Gerrit-It runs with a high-performance, bounded in-process LRU cache (`MemoryLruCache`) that requires zero external infrastructure.
 
 If you wish to use a shared Redis instance on Toolforge:
 1. Request or configure a Redis service on Toolforge.

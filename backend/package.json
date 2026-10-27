@@ -1,7 +1,7 @@
 {
-  "name": "wikigerrittracker-backend",
+  "name": "gerrit-it-backend",
   "version": "1.0.0",
-  "description": "Backend API for WikiGerritTracker - Wikimedia Gerrit Analytics",
+  "description": "Backend API for Gerrit-It - Wikimedia Gerrit Analytics",
   "main": "dist/index.js",
   "type": "module",
   "scripts": {

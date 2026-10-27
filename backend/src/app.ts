@@ -32,7 +32,7 @@ export function createApp(): express.Application {
         res.status(429).json({
           data: null,
           meta: {
-            source: 'WikiGerritTracker',
+            source: 'Gerrit-It',
             generatedAt: new Date().toISOString(),
             cached: false,
             stale: false,
@@ -104,7 +104,7 @@ export function createApp(): express.Application {
     res.status(404).json({
       data: null,
       meta: {
-        source: 'WikiGerritTracker',
+        source: 'Gerrit-It',
         generatedAt: new Date().toISOString(),
         cached: false,
         stale: false,
@@ -128,7 +128,7 @@ export function createApp(): express.Application {
       res.status(400).json({
         data: null,
         meta: {
-          source: 'WikiGerritTracker',
+          source: 'Gerrit-It',
           generatedAt: new Date().toISOString(),
           cached: false,
           stale: false,
@@ -174,7 +174,7 @@ export function createApp(): express.Application {
     res.status(500).json({
       data: null,
       meta: {
-        source: 'WikiGerritTracker',
+        source: 'Gerrit-It',
         generatedAt: new Date().toISOString(),
         cached: false,
         stale: false,

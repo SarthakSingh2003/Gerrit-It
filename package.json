@@ -1,5 +1,5 @@
 {
-  "name": "wikigerrittracker",
+  "name": "gerrit-it",
   "version": "1.0.0",
   "description": "Wikimedia Gerrit Contributor Analytics, Code Review Intelligence & Contribution Reporting Platform",
   "private": true,

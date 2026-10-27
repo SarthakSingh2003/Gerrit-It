@@ -1,4 +1,4 @@
-# Contributing to WikiGerritTracker
+# Contributing to Gerrit-It
 
 Please refer to the comprehensive contributor guide at the project root:
 

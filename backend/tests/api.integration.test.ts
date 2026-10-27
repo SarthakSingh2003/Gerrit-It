@@ -9,7 +9,7 @@ describe('Backend API Integration Tests', () => {
     const res = await request(app).get('/api/health');
     expect(res.status).toBe(200);
     expect(res.body.status).toBe('healthy');
-    expect(res.body.service).toBe('WikiGerritTracker Backend');
+    expect(res.body.service).toBe('Gerrit-It Backend');
     expect(res.body.cache).toBeDefined();
   });
 
@@ -24,7 +24,7 @@ describe('Backend API Integration Tests', () => {
     expect(res.status).toBe(200);
     expect(res.body.data.categories).toBeInstanceOf(Array);
     expect(res.body.data.rules).toBeInstanceOf(Array);
-    expect(res.body.meta.source).toBe('WikiGerritTracker Classifier');
+    expect(res.body.meta.source).toBe('Gerrit-It Classifier');
   });
 
   it('GET /api/fixtures/sample-contributor returns curated fixture with valid schema', async () => {

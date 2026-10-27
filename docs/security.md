@@ -1,4 +1,4 @@
-# Security Guidelines — WikiGerritTracker
+# Security Guidelines — Gerrit-It
 
 For the full security policy and vulnerability reporting process, see **[SECURITY.md](../SECURITY.md)** at the project root.
 

@@ -1,4 +1,4 @@
-# WikiGerritTracker
+# Gerrit-It
 
 > **Wikimedia Gerrit Contributor Analytics, Code Review Intelligence & Reporting Platform**
 
@@ -6,7 +6,7 @@
 [![Wikimedia Codex](https://img.shields.io/badge/Design%20System-Wikimedia%20Codex-00af89.svg)](https://doc.wikimedia.org/codex/)
 [![Node.js 20+](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg)](https://nodejs.org/)
 
-**WikiGerritTracker** empowers Wikimedia technical contributors, developers, mentors, and affiliate communities to quantify their contributions to MediaWiki core, extensions, skins, bots, and infrastructure repositories.
+**Gerrit-It** empowers Wikimedia technical contributors, developers, mentors, and affiliate communities to quantify their contributions to MediaWiki core, extensions, skins, bots, and infrastructure repositories.
 
 It retrieves public contribution records directly from [Wikimedia Gerrit](https://gerrit.wikimedia.org/r/) and turns them into transparent, verifiable analytics, days-wise analysis, and independently auditable reports.
 
@@ -40,7 +40,7 @@ It retrieves public contribution records directly from [Wikimedia Gerrit](https:
 ## Architecture Overview
 
 ```
-wikigerrittracker/
+gerrit-it/
 ├── frontend/                     # Vue 3 + Vite + TypeScript + Wikimedia Codex
 │   ├── src/
 │   │   ├── components/           # Codex UI components (Search, Metrics, Charts, Tables, Reports)
@@ -93,19 +93,11 @@ cp .env.example .env
 ```
 
 Key environment variables (documented with defaults in [.env.example](.env.example)):
-<<<<<<< HEAD
-- `PORT` (default: `3000`): Port for the Express backend server.
-- `GERRIT_API_URL` (default: `https://gerrit.wikimedia.org/r`): Wikimedia Gerrit upstream API.
-- `USE_FIXTURES` (default: `false`): Enable deterministic offline fixture mode (recommended for CI or offline dev).
-- `CACHE_BACKEND` (default: `memory`): `memory` (in-process LRU) or `redis`.
-- `REDIS_URL` (optional): Connection URL for Redis if `CACHE_BACKEND=redis`.
-- `MAX_PAGINATION_LIMIT` (default: `500`): Upstream query safety limit to protect Gerrit resources.
-=======
 - `PORT` (default: `3000` in dev, `8000` in production/Toolforge): Port for the Express backend server.
 - `GERRIT_BASE_URL` (default: `https://gerrit.wikimedia.org/r`): Wikimedia Gerrit upstream API.
 - `REDIS_URL` (optional): Connection URL for Redis if available (automatically falls back to in-memory LRU).
 - `GERRIT_MAX_PAGES` (default: `20`): Upstream query safety limit to protect Gerrit resources.
->>>>>>> local-work
+- `RATE_LIMIT_MAX_REQUESTS` (default: `120`): Maximum requests per minute per IP.
 
 ### Running Locally
 
@@ -153,7 +145,7 @@ npm start
 
 ### 2. Deploying to Wikimedia Toolforge (Node 20)
 
-WikiGerritTracker is fully optimized for **Wikimedia Toolforge** running on Kubernetes with **Node 20**.
+Gerrit-It is fully optimized for **Wikimedia Toolforge** running on Kubernetes with **Node 20**.
 
 #### Option A: Toolforge Build Service (Recommended)
 
