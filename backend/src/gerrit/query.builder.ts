@@ -1,17 +1,11 @@
-/**
- * Sanitizes user input for inclusion in Gerrit search query values.
- * Escapes quotes and prevents operator injection or unbalanced brackets.
- */
 export function sanitizeQueryValue(value: string | number): string {
   if (typeof value === 'number') {
     return String(Math.floor(value));
   }
 
   const str = String(value).trim();
-  // Strip control characters and unescaped double quotes
   const safeStr = str.replace(/[\r\n\t]/g, ' ').replace(/"/g, '\\"');
 
-  // If contains spaces or special punctuation, wrap in quotes
   if (/[\s:]/.test(safeStr)) {
     return `"${safeStr}"`;
   }
@@ -24,14 +18,11 @@ export interface GerritQueryOptions {
   excludeSelfReviews?: boolean;
   status?: 'merged' | 'open' | 'abandoned';
   project?: string;
-  after?: string; // YYYY-MM-DD or ISO
-  before?: string; // YYYY-MM-DD or ISO
+  after?: string;
+  before?: string;
   customClauses?: string[];
 }
 
-/**
- * Builds a validated, safely escaped Gerrit query string.
- */
 export function buildGerritQuery(options: GerritQueryOptions): string {
   const parts: string[] = [];
 
@@ -55,7 +46,6 @@ export function buildGerritQuery(options: GerritQueryOptions): string {
   }
 
   if (options.after) {
-    // Format YYYY-MM-DD or timestamp
     const safeAfter = options.after.split('T')[0];
     parts.push(`after:${sanitizeQueryValue(safeAfter)}`);
   }
@@ -76,9 +66,6 @@ export function buildGerritQuery(options: GerritQueryOptions): string {
   return parts.join(' ');
 }
 
-/**
- * Encodes query for URL parameter 'q'
- */
 export function encodeGerritQueryParam(query: string): string {
   return encodeURIComponent(query);
 }

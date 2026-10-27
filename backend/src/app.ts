@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import path from 'path';
 import fs from 'fs';
+import { fileURLToPath } from 'url';
 import { ZodError } from 'zod';
 import { env } from './config/env.js';
 import { logger } from './logger/logger.js';
@@ -15,7 +16,6 @@ import { AccountResolutionError } from './gerrit/identity.resolver.js';
 export function createApp(): express.Application {
   const app = express();
 
-  // Basic request rate limiter
   const requestCounts = new Map<string, { count: number; resetTime: number }>();
   app.use((req: Request, res: Response, next: NextFunction) => {
     const ip = req.ip || req.socket.remoteAddress || 'unknown';
@@ -53,7 +53,6 @@ export function createApp(): express.Application {
     next();
   });
 
-  // CORS configuration
   app.use(
     cors({
       origin: env.NODE_ENV === 'production' ? true : env.CORS_ORIGIN,
@@ -64,7 +63,6 @@ export function createApp(): express.Application {
 
   app.use(express.json({ limit: '1mb' }));
 
-  // Request logger
   app.use((req: Request, res: Response, next: NextFunction) => {
     const start = Date.now();
     res.on('finish', () => {
@@ -79,16 +77,20 @@ export function createApp(): express.Application {
     next();
   });
 
-  // API Routes
   app.use('/api', healthRoutes);
   app.use('/api/contributors', contributorRoutes);
   app.use('/api/repositories', repositoryRoutes);
   app.use('/api/cohorts', cohortRoutes);
   app.use('/api/fixtures', fixtureRoutes);
 
-  // Serve frontend build in production if available
-  const frontendDistPath = path.resolve(process.cwd(), 'frontend', 'dist');
-  if (fs.existsSync(frontendDistPath)) {
+  const candidateDistPaths = [
+    path.resolve(process.cwd(), 'frontend', 'dist'),
+    path.resolve(process.cwd(), '..', 'frontend', 'dist'),
+    fileURLToPath(new URL('../../frontend/dist', import.meta.url))
+  ];
+  const frontendDistPath = candidateDistPaths.find((p) => fs.existsSync(p));
+
+  if (frontendDistPath) {
     app.use(express.static(frontendDistPath));
     app.get('*', (req: Request, res: Response, next: NextFunction) => {
       if (req.path.startsWith('/api')) {
@@ -98,7 +100,6 @@ export function createApp(): express.Application {
     });
   }
 
-  // 404 handler for unmatched API routes
   app.use('/api/*', (req: Request, res: Response) => {
     res.status(404).json({
       data: null,
@@ -120,7 +121,6 @@ export function createApp(): express.Application {
     });
   });
 
-  // Global Error Handler
   app.use((err: unknown, req: Request, res: Response, _next: NextFunction) => {
     logger.error('Unhandled request error', { path: req.path }, err);
 
@@ -171,7 +171,6 @@ export function createApp(): express.Application {
       return;
     }
 
-    // Generic safe error response - do NOT leak stack traces
     res.status(500).json({
       data: null,
       meta: {

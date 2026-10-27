@@ -17,7 +17,6 @@ describe('Cache Layer & In-Memory LRU Fallback', () => {
     await cache.set('k2', 'val2');
     await cache.set('k3', 'val3');
 
-    // k1 should be evicted because max is 2
     const k1 = await cache.get('k1');
     const k3 = await cache.get('k3');
     expect(k1).toBeNull();

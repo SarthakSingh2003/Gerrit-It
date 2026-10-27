@@ -53,7 +53,6 @@ export class ContributorService {
       warning: result.truncatedReason
     };
 
-    // Cache query
     await cache.set(cacheKey, payload);
     return { ...payload, cached: false };
   }
@@ -76,7 +75,6 @@ export class ContributorService {
       return { ...cached, cached: true };
     }
 
-    // Exclude self-reviews explicitly
     let query = `reviewer:${account._account_id} -owner:${account._account_id}`;
     if (options?.dateRange?.startDate) {
       query += ` after:"${options.dateRange.startDate}"`;
@@ -131,7 +129,6 @@ export class ContributorService {
     if (authoredResult.warning) warnings.push(authoredResult.warning);
     if (reviewResult.warning) warnings.push(reviewResult.warning);
 
-    // Apply date range filters
     const filteredAuthored = MetricCalculator.filterAuthoredChanges(
       authoredResult.changes,
       dateRange
@@ -146,7 +143,6 @@ export class ContributorService {
     const reviewMetrics = MetricCalculator.calculateReviewMetrics(filteredReviewed, account._account_id);
     const categoryBreakdown = MetricCalculator.calculateCategoryBreakdown(filteredAuthored);
 
-    // Repositories impacted
     const allRepos = new Set<string>();
     filteredAuthored.forEach((c) => c.project && allRepos.add(c.project));
 

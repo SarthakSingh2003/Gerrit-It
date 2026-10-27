@@ -4,7 +4,6 @@ import { cohortBodySchema } from '../validation/schemas.js';
 
 const router = Router();
 
-// POST /api/cohorts/analyze - Community and Affiliate Cohort Tracking
 router.post(
   '/analyze',
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {

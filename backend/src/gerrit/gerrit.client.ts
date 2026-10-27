@@ -64,7 +64,6 @@ export class GerritClient {
             return await resp.text();
           }
 
-          // Handle 429 Too Many Requests or 503/504 Gateway errors
           const isRetryable = resp.status === 429 || resp.status === 503 || resp.status === 504;
           if (isRetryable && attempt <= retries) {
             let delayMs = 500 * Math.pow(2, attempt - 1);
@@ -73,7 +72,6 @@ export class GerritClient {
               const seconds = parseInt(retryAfter, 10);
               if (!isNaN(seconds)) delayMs = seconds * 1000;
             } else {
-              // Add jitter +/- 20%
               delayMs += Math.random() * (delayMs * 0.2);
             }
 
@@ -144,7 +142,6 @@ export class GerritClient {
           break;
         }
 
-        // Deduplicate records by change number / id
         for (const change of pageRecords) {
           const key = change._number || change.id;
           if (!seenIds.has(key)) {
@@ -153,7 +150,6 @@ export class GerritClient {
           }
         }
 
-        // Inspect _more_changes on last record
         const lastChange = pageRecords[pageRecords.length - 1];
         if (!lastChange || !lastChange._more_changes) {
           hasMore = false;

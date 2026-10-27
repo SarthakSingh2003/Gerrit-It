@@ -42,7 +42,6 @@ export function classifyRepository(
     }
   }
 
-  // Fallback for "Other"
   return {
     originalName: safeName,
     category: 'Other',

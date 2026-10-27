@@ -70,8 +70,7 @@ export class CohortService {
         combinedOpen += summary.authored.open;
         combinedAbandoned += summary.authored.abandoned;
         combinedReviews += summary.reviews.distinctChangesReviewed;
-
-        // Track repo impact deduplicated by account
+ 
         for (const change of rawAuthored) {
           if (!change.project) continue;
           let accountSet = allAuthoredRepos.get(change.project);

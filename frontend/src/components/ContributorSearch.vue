@@ -151,7 +151,6 @@ const { consentGiven, searchHistory, setConsent, addSearch, clearHistory } = use
 
 const sampleProfiles = ['legoktm', 'reedy', 'krinkle', 'roan', 'matmarex'];
 
-// Sync search query with current route / active contributor
 watch(
   [() => currentIdentifier.value, () => route?.params?.identifier],
   ([newId, routeId]) => {

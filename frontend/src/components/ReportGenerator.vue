@@ -148,7 +148,6 @@ const triggerPrintPdf = () => {
   window.print();
 };
 
-// Simple safe markdown to HTML parser for report preview
 const renderedHtml = computed(() => {
   if (!markdownContent.value) return '';
 
@@ -160,13 +159,11 @@ const renderedHtml = computed(() => {
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i];
 
-    // Escape basic html
     line = line
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
 
-    // Headings
     if (line.startsWith('# ')) {
       htmlLines.push(`<h1>${line.slice(2)}</h1>`);
       continue;
@@ -180,26 +177,22 @@ const renderedHtml = computed(() => {
       continue;
     }
 
-    // Horizontal rule
     if (line.trim() === '---') {
       htmlLines.push('<hr />');
       continue;
     }
 
-    // Blockquote
     if (line.startsWith('&gt; ')) {
       htmlLines.push(`<blockquote>${line.slice(5)}</blockquote>`);
       continue;
     }
 
-    // Table rows
     if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
       if (!inTable) {
         htmlLines.push('<div class="wgt-table-wrap"><table>');
         inTable = true;
       }
 
-      // Check if separator line
       if (line.includes('---')) {
         continue;
       }
@@ -211,7 +204,6 @@ const renderedHtml = computed(() => {
 
       const rowHtml = cells
         .map((c) => {
-          // Format bold and links in cells
           const fmt = formatInline(c);
           return `<td>${fmt}</td>`;
         })
@@ -224,7 +216,6 @@ const renderedHtml = computed(() => {
       inTable = false;
     }
 
-    // List items
     if (line.trim().startsWith('- ')) {
       const itemContent = formatInline(line.trim().slice(2));
       htmlLines.push(`<ul><li>${itemContent}</li></ul>`);
@@ -237,7 +228,6 @@ const renderedHtml = computed(() => {
       continue;
     }
 
-    // Paragraph
     if (line.trim().length > 0) {
       htmlLines.push(`<p>${formatInline(line)}</p>`);
     }

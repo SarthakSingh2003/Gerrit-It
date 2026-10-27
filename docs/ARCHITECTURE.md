@@ -48,3 +48,4 @@ This document provides an overview of the data pipeline, subsystem breakdown, ca
 - [METRIC_DEFINITIONS.md](METRIC_DEFINITIONS.md) — Formulas separating authored commits from code reviews.
 - [REPOSITORY_CLASSIFICATION.md](REPOSITORY_CLASSIFICATION.md) — Regex classification rules.
 - [API_SPECIFICATION.md](API_SPECIFICATION.md) — Full REST API endpoint reference.
+- [TOOLFORGE.md](TOOLFORGE.md) — Deployment guide for Wikimedia Toolforge on Node 20.

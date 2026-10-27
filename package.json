@@ -31,5 +31,8 @@
     "codex"
   ],
   "author": "Wikimedia Developer Community",
-  "license": "GPL-3.0-or-later"
+  "license": "GPL-3.0-or-later",
+  "engines": {
+    "node": ">=20.0.0"
+  }
 }

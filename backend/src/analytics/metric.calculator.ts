@@ -25,7 +25,6 @@ export class MetricCalculator {
     }
 
     return changes.filter((change) => {
-      // For MERGED changes, filter by submission/merge timestamp when available
       const timestamp = change.status === 'MERGED' && change.submitted
         ? change.submitted
         : change.created;
@@ -136,7 +135,6 @@ export class MetricCalculator {
         repos.add(change.project);
       }
 
-      // Check Code-Review label approvals
       const crApprovals = change.labels?.['Code-Review']?.all;
       if (crApprovals && Array.isArray(crApprovals)) {
         const userVote = crApprovals.find((a) => a._account_id === targetAccountId);
@@ -152,7 +150,6 @@ export class MetricCalculator {
         }
       }
 
-      // Check Verified label approvals
       const vApprovals = change.labels?.['Verified']?.all;
       if (vApprovals && Array.isArray(vApprovals)) {
         const userVVote = vApprovals.find((a) => a._account_id === targetAccountId);
@@ -240,7 +237,6 @@ export class MetricCalculator {
       }
     }
 
-    // Sort descending by mergedCount, then totalAuthored, then reviewedCount
     return Array.from(map.values()).sort((a, b) => {
       if (b.mergedCount !== a.mergedCount) return b.mergedCount - a.mergedCount;
       if (b.totalAuthored !== a.totalAuthored) return b.totalAuthored - a.totalAuthored;
