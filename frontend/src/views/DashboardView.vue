@@ -251,7 +251,6 @@ import ContributorSearch from '../components/ContributorSearch.vue';
   background-color: var(--wgt-border-subtle);
 }
 
-/* Days-Wise Showcase Banner */
 .wgt-days-banner {
   background-color: var(--wgt-bg-surface);
   border: 1px solid var(--wgt-border-subtle);
@@ -321,7 +320,6 @@ import ContributorSearch from '../components/ContributorSearch.vue';
   border-color: var(--wgt-color-primary);
 }
 
-/* Features Grid */
 .wgt-features-section {
   display: flex;
   flex-direction: column;

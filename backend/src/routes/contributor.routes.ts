@@ -7,12 +7,9 @@ import {
   reportQuerySchema,
   changesQuerySchema
 } from '../validation/schemas.js';
-import { AccountResolutionError } from '../gerrit/identity.resolver.js';
-import { logger } from '../logger/logger.js';
 
 const router = Router();
 
-// GET /api/contributors/:identifier - Basic account resolution
 router.get(
   '/:identifier',
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
@@ -48,7 +45,6 @@ router.get(
   }
 );
 
-// GET /api/contributors/:identifier/summary - Full contributor analytics summary
 router.get(
   '/:identifier/summary',
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
@@ -69,7 +65,6 @@ router.get(
   }
 );
 
-// GET /api/contributors/:identifier/repositories - Repository contribution table
 router.get(
   '/:identifier/repositories',
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
@@ -100,7 +95,6 @@ router.get(
   }
 );
 
-// GET /api/contributors/:identifier/changes - Detailed change list
 router.get(
   '/:identifier/changes',
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
@@ -118,7 +112,6 @@ router.get(
         query.type
       );
 
-      // Apply pagination slice
       const offset = query.offset || 0;
       const limit = query.limit || 100;
       const paged = allChanges.slice(offset, offset + limit);
@@ -150,7 +143,6 @@ router.get(
   }
 );
 
-// GET /api/contributors/:identifier/reviews - Code review intelligence
 router.get(
   '/:identifier/reviews',
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
@@ -180,7 +172,6 @@ router.get(
   }
 );
 
-// GET /api/contributors/:identifier/report - Scholarship and grant report generator
 router.get(
   '/:identifier/report',
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {

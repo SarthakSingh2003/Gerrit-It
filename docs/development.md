@@ -6,7 +6,7 @@ This guide explains how to set up, build, and debug **WikiGerritTracker** locall
 
 ## 1. Prerequisites
 
-- **Node.js:** v22.x or later (Native `fetch` and modern ECMAScript support)
+- **Node.js:** v20.x or later (Native `fetch` and modern ECMAScript support)
 - **npm:** v11.x or later
 - **Git**
 - Optional: **Redis** (if testing distributed caching; bounded in-memory LRU fallback runs automatically if Redis is absent)

@@ -20,7 +20,6 @@ export function getCacheService(): ICacheService {
   if (env.REDIS_URL && env.REDIS_URL.trim() !== '') {
     try {
       const redis = new RedisCache(env.REDIS_URL, env.CACHE_TTL_SECONDS);
-      // Hybrid wrapper: try redis, fallback to memory
       cacheInstance = {
         async get<T>(key: string): Promise<T | null> {
           if (await redis.isHealthy()) {

@@ -16,7 +16,6 @@ function sanitizeContext(context?: Record<string, unknown>): Record<string, unkn
   if (!context) return undefined;
   const sanitized: Record<string, unknown> = {};
   for (const [key, value] of Object.entries(context)) {
-    // Redact sensitive keys
     if (/password|token|secret|authorization|cookie/i.test(key)) {
       sanitized[key] = '[REDACTED]';
     } else {

@@ -2,7 +2,6 @@ import { env } from '../config/env.js';
 import { parseGerritResponse } from './parser.js';
 import { GerritAccount } from '../analytics/types.js';
 import { getCacheService, buildCacheKey } from '../cache/index.js';
-import { logger } from '../logger/logger.js';
 
 export interface DisambiguationCandidate {
   _account_id: number;
@@ -24,11 +23,6 @@ export class AccountResolutionError extends Error {
   }
 }
 
-/**
- * Resolves a raw user input (username, numeric ID, or name) to a canonical Gerrit account.
- * Preserves upstream identity semantics, never guesses or merges accounts,
- * and yields disambiguation candidates if ambiguous.
- */
 export async function resolveCanonicalAccount(
   rawIdentifier: string | number,
   fetchFn: typeof fetch = fetch
@@ -51,7 +45,6 @@ export async function resolveCanonicalAccount(
     'User-Agent': 'WikiGerritTracker/1.0 (https://gerrit.wikimedia.org; community-tool)'
   };
 
-  // Case 1: Numeric Gerrit Account ID
   if (/^\d+$/.test(trimmed)) {
     const accountId = parseInt(trimmed, 10);
     const detailUrl = `${env.GERRIT_BASE_URL}/accounts/${accountId}/detail`;
@@ -73,8 +66,6 @@ export async function resolveCanonicalAccount(
     }
   }
 
-  // Case 2: Username or query search
-  // Escape query for Gerrit /accounts/?q=...
   const safeQuery = encodeURIComponent(trimmed);
   const searchUrl = `${env.GERRIT_BASE_URL}/accounts/?q=${safeQuery}&n=5`;
 
@@ -95,20 +86,16 @@ export async function resolveCanonicalAccount(
     throw new AccountResolutionError(`No Gerrit account found matching '${trimmed}'`, 'ACCOUNT_NOT_FOUND');
   }
 
-  // If exactly one candidate
   let targetAccountId: number;
   if (candidates.length === 1) {
     targetAccountId = candidates[0]._account_id;
   } else {
-    // If multiple candidates returned, inspect if one has exact match on username or name
     const exactUsername = candidates.find(
       (c) => c.username && c.username.toLowerCase() === trimmed.toLowerCase()
     );
     if (exactUsername) {
       targetAccountId = exactUsername._account_id;
     } else {
-      // Ambiguous resolution! Return disambiguation error with list of candidates
-      // Note: We don't expose private email addresses
       const safeCandidates: DisambiguationCandidate[] = candidates.map((c) => ({
         _account_id: c._account_id,
         name: c.name,
@@ -124,7 +111,6 @@ export async function resolveCanonicalAccount(
     }
   }
 
-  // Fetch full details for the canonical target
   const detailUrl = `${env.GERRIT_BASE_URL}/accounts/${targetAccountId}/detail`;
   try {
     const detailResp = await fetchFn(detailUrl, { headers: requestHeaders });
@@ -134,7 +120,6 @@ export async function resolveCanonicalAccount(
     const detailText = await detailResp.text();
     const resolvedAccount = parseGerritResponse<GerritAccount>(detailText);
     await cache.set(cacheKey, resolvedAccount);
-    // Also cache by accountId
     await cache.set(buildCacheKey('contributor', resolvedAccount._account_id), resolvedAccount);
     return resolvedAccount;
   } catch (err) {

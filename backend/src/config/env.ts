@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const envSchema = z.object({
-  PORT: z.coerce.number().default(3000),
+  PORT: z.coerce.number().default(process.env.PORT ? Number(process.env.PORT) : (process.env.NODE_ENV === 'production' ? 8000 : 3000)),
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
   HOST: z.string().default('0.0.0.0'),
   GERRIT_BASE_URL: z.string().url().default('https://gerrit.wikimedia.org/r'),
@@ -13,7 +13,7 @@ const envSchema = z.object({
   GERRIT_MAX_PAGES: z.coerce.number().default(20),
   GERRIT_MAX_CONCURRENCY: z.coerce.number().default(5),
   REDIS_URL: z.string().optional().default(''),
-  CACHE_TTL_SECONDS: z.coerce.number().default(14400), // 4 hours
+  CACHE_TTL_SECONDS: z.coerce.number().default(14400),
   CACHE_MAX_MEMORY_ITEMS: z.coerce.number().default(1000),
   RATE_LIMIT_WINDOW_MS: z.coerce.number().default(60000),
   RATE_LIMIT_MAX_REQUESTS: z.coerce.number().default(120),

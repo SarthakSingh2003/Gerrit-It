@@ -6,17 +6,17 @@ This document outlines the development workflow, testing standards, and pull req
 
 ---
 
-## 1. Code of Conduct
+## 1. Community Guidelines
 
-All contributors are expected to uphold a welcoming, respectful, and collaborative environment. Please review our [Code of Conduct](file:///e:/WikiGerritTracker/CODE_OF_CONDUCT.md) before participating.
+All contributors are expected to uphold a welcoming, respectful, and collaborative environment in alignment with the [Wikimedia Universal Code of Conduct](https://foundation.wikimedia.org/wiki/Policy:Universal_Code_of_Conduct).
 
 ---
 
 ## 2. Setting Up the Development Environment
 
 ### Prerequisites
-- **Node.js:** v22.x or later
-- **npm:** v11.x or later
+- **Node.js:** v20.x or later
+- **npm:** v10.x or later
 - **Git**
 
 ### Installation

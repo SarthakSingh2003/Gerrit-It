@@ -112,7 +112,6 @@ export function isTimestampInRange(
   if (!rawTimestamp) return false;
   if (!startDate && !endDate) return true;
 
-  // Gerrit timestamps look like: "2026-05-21 05:11:49.000000000" or ISO
   const ts = new Date(rawTimestamp.replace(' ', 'T')).getTime();
   if (isNaN(ts)) return false;
 
@@ -122,7 +121,6 @@ export function isTimestampInRange(
   }
 
   if (endDate) {
-    // End date inclusive to end of day
     const endMs = new Date(endDate).getTime() + 24 * 60 * 60 * 1000;
     if (ts > endMs) return false;
   }

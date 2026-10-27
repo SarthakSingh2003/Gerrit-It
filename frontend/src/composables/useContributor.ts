@@ -40,8 +40,6 @@ export function useContributor() {
       });
 
       summary.value = resp.data;
-
-      // Load repositories in parallel
       loadRepositories(identifier);
     } catch (err) {
       if (err instanceof ApiClientError) {

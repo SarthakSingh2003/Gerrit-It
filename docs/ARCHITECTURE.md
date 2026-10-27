@@ -1,9 +1,9 @@
 # WikiGerritTracker Architecture
 
-This document points to the full technical architecture specification.
+This document provides links to detailed architecture and design documentation for WikiGerritTracker.
 
 Please refer to:
-- [System Architecture](file:///e:/WikiGerritTracker/docs/ARCHITECTURE.md) for full pipeline diagrams, subsystem breakdown, caching, concurrency, and classification rules.
-- [Drawbacks & Resolutions](file:///e:/WikiGerritTracker/docs/DRAWBACKS_RESOLUTIONS.md) for how Gerrit rate-limiting, anti-XSSI parsing, pagination safety budgets, and identity resolution ambiguities are engineered.
-- [Metric Definitions](file:///e:/WikiGerritTracker/docs/METRIC_DEFINITIONS.md) for formulas separating authored commits from code reviews.
-- [Repository Classification](file:///e:/WikiGerritTracker/docs/REPOSITORY_CLASSIFICATION.md) for the regex classification rules.
+- [Drawbacks & Resolutions](./DRAWBACKS_RESOLUTIONS.md) for how Gerrit rate-limiting, anti-XSSI parsing, pagination safety budgets, and identity resolution ambiguities are engineered.
+- [Metric Definitions](./METRIC_DEFINITIONS.md) for formulas separating authored commits from code reviews.
+- [Repository Classification](./REPOSITORY_CLASSIFICATION.md) for the regex classification rules.
+- [API Specification](./API_SPECIFICATION.md) for endpoint contracts and schema models.

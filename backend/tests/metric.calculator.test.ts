@@ -106,9 +106,9 @@ describe('Metric Calculator Engine', () => {
   it('calculates review intelligence metrics with approvals and recommendations', () => {
     const reviews = MetricCalculator.calculateReviewMetrics(sampleReviewChanges, 458);
     expect(reviews.distinctChangesReviewed).toBe(2);
-    expect(reviews.approvalsCount).toBe(1); // CR+2
-    expect(reviews.recommendationsCount).toBe(1); // CR+1
-    expect(reviews.verifiedCount).toBe(1); // V+1
+    expect(reviews.approvalsCount).toBe(1);
+    expect(reviews.recommendationsCount).toBe(1);
+    expect(reviews.verifiedCount).toBe(1);
     expect(reviews.critiquesCount).toBe(0);
     expect(reviews.uniqueReviewRepositories).toBe(2);
     expect(reviews.mentorshipDisclaimer).toContain('peer review');
@@ -123,7 +123,6 @@ describe('Metric Calculator Engine', () => {
     };
 
     const filtered = MetricCalculator.filterAuthoredChanges(sampleAuthoredChanges, range2024);
-    // Change 103 was created in 2023-11, so it must be excluded
     expect(filtered).toHaveLength(2);
     expect(filtered.map((c) => c._number)).toEqual([101, 102]);
   });
@@ -151,7 +150,6 @@ describe('Metric Calculator Engine', () => {
 
     expect(core?.count).toBe(2);
     expect(ext?.count).toBe(1);
-    // 2/3 = 66.7%
     expect(core?.percentage).toBe(66.7);
   });
 });
