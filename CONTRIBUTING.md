@@ -24,8 +24,8 @@ All contributors are expected to uphold a welcoming, respectful, and collaborati
 Clone the repository and install all dependencies:
 
 ```bash
-git clone https://github.com/SarthakSingh2003/WikiGerritTracker.git
-cd WikiGerritTracker
+git clone https://github.com/SarthakSingh2003/Gerrit-It.git
+cd Gerrit-It
 npm install
 ```
 

@@ -18,8 +18,8 @@ This guide explains how to set up, build, and debug **Gerrit-It** locally.
 Clone and install dependencies:
 
 ```bash
-git clone https://github.com/SarthakSingh2003/WikiGerritTracker.git
-cd WikiGerritTracker
+git clone https://github.com/SarthakSingh2003/Gerrit-It.git
+cd Gerrit-It
 npm install
 ```
 

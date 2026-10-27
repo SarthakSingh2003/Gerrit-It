@@ -77,8 +77,8 @@ gerrit-it/
 ### Installation
 
 ```bash
-git clone https://github.com/SarthakSingh2003/WikiGerritTracker.git
-cd WikiGerritTracker
+git clone https://github.com/SarthakSingh2003/Gerrit-It.git
+cd Gerrit-It
 
 # Install root, backend, and frontend dependencies
 npm install
@@ -155,12 +155,12 @@ Gerrit-It is fully optimized for **Wikimedia Toolforge** running on Kubernetes w
    ```
 2. Clone your repository:
    ```bash
-   git clone https://github.com/<your-username>/WikiGerritTracker.git app
+   git clone https://github.com/<your-username>/Gerrit-It.git app
    cd app
    ```
 3. Build the container using the Toolforge Build Service:
    ```bash
-   toolforge build start https://github.com/<your-username>/WikiGerritTracker
+   toolforge build start https://github.com/<your-username>/Gerrit-It
    ```
 4. Start the webservice:
    ```bash
