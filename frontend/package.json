@@ -14,7 +14,7 @@
     "@wikimedia/codex": "^2.7.0",
     "@wikimedia/codex-icons": "^2.7.0",
     "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "vue-router": "^5.4.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
